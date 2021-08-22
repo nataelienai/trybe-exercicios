@@ -2,10 +2,14 @@ h1, p {
   text-align: center;
 }
 
-li:hover {
+ol li:hover {
   background-color: deepskyblue;
 }
 
-li:active {
+ol li:active {
   font-weight: bold;
+}
+
+ul, ol {
+  list-style: none;
 }
