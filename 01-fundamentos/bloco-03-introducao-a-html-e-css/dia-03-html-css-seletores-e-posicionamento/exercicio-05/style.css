@@ -26,3 +26,11 @@ li {
 li em {
   font-weight: bold;
 }
+
+ul.programming-languages li:nth-child(-n+3) {
+  color: #00a2ff;
+}
+
+ul.programming-languages li.text-has-java {
+  color: #efb8ff;
+}
