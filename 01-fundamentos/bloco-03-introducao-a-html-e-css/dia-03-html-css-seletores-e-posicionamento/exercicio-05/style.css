@@ -34,3 +34,28 @@ ul.programming-languages li:nth-child(-n+3) {
 ul.programming-languages li.text-has-java {
   color: #efb8ff;
 }
+
+ul li a:hover {
+  font-weight: bold;
+}
+
+#stackoverflow:hover {
+  color: #ff7b00;
+}
+
+#w3schools:hover  {
+  color: #008000;
+}
+
+#mdnwebdocs:hover  {
+  color: #000;
+}
+
+#devdocs:hover  {
+  color: #ffff00;
+  text-shadow: 1px 1px 1px black;
+}
+
+#trybe:hover  {
+  color: #008000;
+}
