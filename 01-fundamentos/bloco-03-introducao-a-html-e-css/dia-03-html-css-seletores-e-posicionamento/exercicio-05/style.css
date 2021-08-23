@@ -1,0 +1,61 @@
+ol li {
+  background-color: #ffd700;
+}
+
+ol li:nth-of-type(2n) {
+  background-color: #00B000;
+}
+
+ol li:nth-of-type(2n+1) {
+  text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ff0000;
+}
+
+h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+  font-size: 40px;
+  border: 1px solid black;
+}
+
+li {
+  font-size: 20px;
+}
+
+li em {
+  font-weight: bold;
+}
+
+ul.programming-languages li:nth-child(-n+3) {
+  color: #00a2ff;
+}
+
+ul.programming-languages li.text-has-java {
+  color: #efb8ff;
+}
+
+ul li a:hover {
+  font-weight: bold;
+}
+
+#stackoverflow:hover {
+  color: #ff7b00;
+}
+
+#w3schools:hover  {
+  color: #008000;
+}
+
+#mdnwebdocs:hover  {
+  color: #000;
+}
+
+#devdocs:hover  {
+  color: #ffff00;
+  text-shadow: 1px 1px 1px black;
+}
+
+#trybe:hover  {
+  color: #008000;
+}
