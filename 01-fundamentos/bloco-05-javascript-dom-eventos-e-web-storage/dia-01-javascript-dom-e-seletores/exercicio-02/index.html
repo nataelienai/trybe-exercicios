@@ -94,7 +94,15 @@
         }
       }
       putParagraphsInLowerCase();
-      
+
+      function printParagraphsOnTheConsole() {
+        const paragraphs = document.getElementsByTagName("p");
+        for (let p of paragraphs) {
+          console.log(p.innerText);
+        }
+      }
+      printParagraphsOnTheConsole();
+
     </script>
   </body>
 </html>
