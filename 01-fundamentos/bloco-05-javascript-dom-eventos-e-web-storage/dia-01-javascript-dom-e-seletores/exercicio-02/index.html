@@ -84,6 +84,14 @@
         title[0].innerText = text;
       }
       changeTitleText("Exercício 5.1 - JavaScript");
+
+      function putParagraphsInLowerCase() {
+        const paragraphs = document.getElementsByTagName("p");
+        for (let index in paragraphs) {
+          paragraphs[index].innerText = paragraphs[index].innerText.toLowerCase();
+        }
+      }
+      putParagraphsInLowerCase();
       
     </script>
   </body>
