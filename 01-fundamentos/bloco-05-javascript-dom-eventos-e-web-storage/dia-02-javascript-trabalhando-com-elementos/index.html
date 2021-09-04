@@ -65,13 +65,17 @@
       main.className = 'main-content';
       document.body.appendChild(main);
 
-      const section = document.createElement('section');
-      section.className = 'center-content';
-      main.appendChild(section);
+      const centerSection = document.createElement('section');
+      centerSection.className = 'center-content';
+      main.appendChild(centerSection);
 
       const paragraph = document.createElement('p');
       paragraph.innerText = 'Modificando documentos HTML através do DOM';
-      section.appendChild(paragraph);
+      centerSection.appendChild(paragraph);
+
+      const leftSection = document.createElement('section');
+      leftSection.className = 'left-content';
+      main.appendChild(leftSection);
     </script>
   </body>
 </html>
