@@ -57,34 +57,61 @@
   </head>
   <body>
     <script>
+      // Exercise 1
       const title = document.createElement('h1');
       title.innerText = 'Exercício 5.2 - JavaScript DOM';
       document.body.appendChild(title);
 
+      // Exercise 2
       const main = document.createElement('main');
       main.className = 'main-content';
       document.body.appendChild(main);
 
+      // Exercise 3
       const centerSection = document.createElement('section');
       centerSection.className = 'center-content';
       main.appendChild(centerSection);
 
+      // Exercise 4
       const paragraph = document.createElement('p');
       paragraph.innerText = 'Modificando documentos HTML através do DOM';
       centerSection.appendChild(paragraph);
 
+      // Exercise 5
       const leftSection = document.createElement('section');
       leftSection.className = 'left-content';
       main.appendChild(leftSection);
 
+      // Exercise 6
       const rightSection = document.createElement('section');
       rightSection.className = 'right-content';
       main.appendChild(rightSection);
 
+      // Exercise 7
       const img = document.createElement('img');
       img.src = 'https://picsum.photos/200';
       img.className = 'small-image';
       leftSection.appendChild(img);
+
+      // Exercise 8
+      function createListItem(content) {
+        let li = document.createElement('li');
+        li.innerText = content;
+        return li;
+      }
+
+      function createUnorderedList(itemsContent) {
+        let ul = document.createElement('ul');
+        for (let content of itemsContent) {
+          ul.appendChild(createListItem(content));
+        }
+        return ul;
+      }
+
+      const numbers = ['Um', 'Dois', 'Três', 'Quatro',
+        'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez'];
+      const ul = createUnorderedList(numbers);
+      rightSection.appendChild(ul);
     </script>
   </body>
 </html>
