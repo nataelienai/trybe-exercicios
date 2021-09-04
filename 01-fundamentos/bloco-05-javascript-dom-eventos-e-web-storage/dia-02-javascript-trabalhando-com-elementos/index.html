@@ -57,66 +57,58 @@
   </head>
   <body>
     <script>
-      // Exercise 1
-      const title = document.createElement('h1');
-      title.innerText = 'Exercício 5.2 - JavaScript DOM';
-      document.body.appendChild(title);
-
-      // Exercise 2
-      const main = document.createElement('main');
-      main.className = 'main-content';
-      document.body.appendChild(main);
-
-      // Exercise 3
-      const centerSection = document.createElement('section');
-      centerSection.className = 'center-content';
-      main.appendChild(centerSection);
-
-      // Exercise 4
-      const paragraph = document.createElement('p');
-      paragraph.innerText = 'Modificando documentos HTML através do DOM';
-      centerSection.appendChild(paragraph);
-
-      // Exercise 5
-      const leftSection = document.createElement('section');
-      leftSection.className = 'left-content';
-      main.appendChild(leftSection);
-
-      // Exercise 6
-      const rightSection = document.createElement('section');
-      rightSection.className = 'right-content';
-      main.appendChild(rightSection);
-
-      // Exercise 7
-      const img = document.createElement('img');
-      img.src = 'https://picsum.photos/200';
-      img.className = 'small-image';
-      leftSection.appendChild(img);
-
-      // Exercise 8
-      function createListItem(content) {
-        let li = document.createElement('li');
-        li.innerText = content;
-        return li;
+      function createElement(tagName, content, className) {
+        let element = document.createElement(tagName);
+        element.innerText = content;
+        element.className = className;
+        return element;
       }
 
+      function appendElement(container, element) {
+        container.appendChild(element);
+      }
+
+      // Exercise 1
+      appendElement(document.body, createElement('h1', 'Exercício 5.2 - JavaScript DOM', ''));
+
+      // Exercise 2
+      appendElement(document.body, createElement('main', '', 'main-content'));
+
+      // Exercise 3
+      const main = document.body.querySelector('main');
+      appendElement(main, createElement('section', '', 'center-content'));
+
+      // Exercise 4
+      appendElement(main.querySelector('.center-content'),
+        createElement('p', 'Modificando documentos HTML através do DOM', ''))
+
+      // Exercise 5
+      appendElement(main, createElement('section', '', 'left-content'));
+
+      // Exercise 6
+      appendElement(main, createElement('section', '', 'right-content'));
+
+      // Exercise 7
+      const img = createElement('img', '', 'small-image');
+      img.src = 'https://picsum.photos/200';
+      appendElement(main.querySelector('.left-content'), img);
+
+      // Exercise 8
       function createUnorderedList(itemsContent) {
         let ul = document.createElement('ul');
         for (let content of itemsContent) {
-          ul.appendChild(createListItem(content));
+          appendElement(ul, createElement('li', content, ''));
         }
         return ul;
       }
 
-      const numbers = ['Um', 'Dois', 'Três', 'Quatro',
-        'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez'];
-      const ul = createUnorderedList(numbers);
-      rightSection.appendChild(ul);
+      appendElement(main.querySelector('.right-content'),
+        createUnorderedList(['Um', 'Dois', 'Três', 'Quatro',
+          'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez']));
 
       // Exercise 9
       for (let counter = 0; counter < 3; counter += 1) {
-        let h3 = document.createElement('h3');
-        main.appendChild(h3);
+        appendElement(main, document.createElement('h3'));
       }
     </script>
   </body>
