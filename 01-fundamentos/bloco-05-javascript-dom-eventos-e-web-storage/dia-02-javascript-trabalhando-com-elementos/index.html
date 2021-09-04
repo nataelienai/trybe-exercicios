@@ -127,6 +127,12 @@
 
       // Exercise 14
       main.style.backgroundColor = 'green';
+
+      // Exercise 15
+      const list = main.querySelector('.right-content ul');
+      for (let counter = 0; counter < 2; counter += 1) {
+        list.removeChild(list.lastElementChild);
+      }
     </script>
   </body>
 </html>
