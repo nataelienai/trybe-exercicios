@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function createElement(tagName, content, className) {
+        let element = document.createElement(tagName);
+        element.innerText = content;
+        element.className = className;
+        return element;
+      }
+
+      function appendElement(container, element) {
+        container.appendChild(element);
+      }
+
+      // Exercise 1
+      appendElement(document.body, createElement('h1', 'Exercício 5.2 - JavaScript DOM', ''));
+
+      // Exercise 2
+      appendElement(document.body, createElement('main', '', 'main-content'));
+
+      // Exercise 3
+      const main = document.body.querySelector('main');
+      appendElement(main, createElement('section', '', 'center-content'));
+
+      // Exercise 4
+      appendElement(main.querySelector('.center-content'),
+        createElement('p', 'Modificando documentos HTML através do DOM', ''))
+
+      // Exercise 5
+      appendElement(main, createElement('section', '', 'left-content'));
+
+      // Exercise 6
+      appendElement(main, createElement('section', '', 'right-content'));
+
+      // Exercise 7
+      const img = createElement('img', '', 'small-image');
+      img.src = 'https://picsum.photos/200';
+      appendElement(main.querySelector('.left-content'), img);
+
+      // Exercise 8
+      function createUnorderedList(itemsContent) {
+        let ul = document.createElement('ul');
+        for (let content of itemsContent) {
+          appendElement(ul, createElement('li', content, ''));
+        }
+        return ul;
+      }
+
+      appendElement(main.querySelector('.right-content'),
+        createUnorderedList(['Um', 'Dois', 'Três', 'Quatro',
+          'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez']));
+
+      // Exercise 9
+      for (let counter = 0; counter < 3; counter += 1) {
+        appendElement(main, document.createElement('h3'));
+      }
+
+      // Exercise 10
+      document.body.querySelector('h1').className = 'title';
+
+      // Exercise 11
+      for (let h1 of main.getElementsByTagName('h3')) {
+        h1.className = 'description';
+      }
+
+      // Exercise 12
+      main.removeChild(main.querySelector('.left-content'));
+
+      // Exercise 13
+      main.querySelector('.right-content').style.marginRight = 'auto';
+
+      // Exercise 14
+      main.style.backgroundColor = 'green';
+
+      // Exercise 15
+      const list = main.querySelector('.right-content ul');
+      for (let counter = 0; counter < 2; counter += 1) {
+        list.removeChild(list.lastElementChild);
+      }
+    </script>
+  </body>
+</html>
