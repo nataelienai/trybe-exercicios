@@ -94,3 +94,15 @@ function changeTheTextOfFridays() {
 
 const fridayButton = document.getElementById('btn-friday');
 fridayButton.addEventListener('click', changeTheTextOfFridays);
+
+function zoomIn(event) {
+  event.target.style.fontSize = '2em';
+}
+function zoomOut(event) {
+  event.target.style.fontSize = '';
+}
+
+for (let day of document.querySelectorAll('.day')) {
+  day.addEventListener('mouseover', zoomIn);
+  day.addEventListener('mouseleave', zoomOut);
+}
