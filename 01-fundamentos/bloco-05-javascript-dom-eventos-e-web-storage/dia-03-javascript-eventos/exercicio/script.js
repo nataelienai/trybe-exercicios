@@ -164,3 +164,26 @@ function addEventToMonthDays() {
 }
 
 addEventToMonthDays();
+
+function addAppointment(event) {
+  if (event.type === 'click' || event.type === 'keypress'
+  && event.keyCode === 13) {
+    const input = document.getElementById('task-input');
+    if (input.value.length === 0) {
+      window.alert('ERRO: Nenhum caractere foi digitado!');
+    } else {
+      const appointmentList = document.querySelector('.task-list');
+      const appointmentListItem = document.createElement('li');
+      appointmentListItem.innerText = input.value;
+
+      appointmentList.appendChild(appointmentListItem);
+    }
+  }
+  
+}
+
+const inputField = document.getElementById('task-input');
+const addButton = document.getElementById('btn-add');
+
+inputField.addEventListener('keypress', addAppointment);
+addButton.addEventListener('click', addAppointment);
