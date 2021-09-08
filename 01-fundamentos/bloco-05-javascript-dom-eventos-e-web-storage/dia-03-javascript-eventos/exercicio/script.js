@@ -106,3 +106,13 @@ for (let day of document.querySelectorAll('.day')) {
   day.addEventListener('mouseover', zoomIn);
   day.addEventListener('mouseleave', zoomOut);
 }
+
+function createCustomTask(taskName) {
+  const myTasks = document.querySelector('.my-tasks');
+  const task = document.createElement('span');
+  task.innerHTML = taskName;
+
+  myTasks.appendChild(task);
+}
+
+createCustomTask('cozinhar');
