@@ -65,3 +65,14 @@ function changeTheColorOfHolidays() {
 
 const holidayButton = document.getElementById('btn-holiday');
 holidayButton.addEventListener('click', changeTheColorOfHolidays);
+
+function createFridaysButton(buttonText) {
+  const buttonContainer = document.querySelector('.buttons-container');
+  const button = document.createElement('button');
+  button.innerHTML = buttonText;
+  button.id = 'btn-friday';
+  
+  buttonContainer.appendChild(button);
+}
+
+createFridaysButton('Sexta-feira');
