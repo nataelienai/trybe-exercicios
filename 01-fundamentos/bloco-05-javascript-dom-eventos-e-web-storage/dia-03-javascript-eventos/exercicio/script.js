@@ -127,3 +127,21 @@ function addColoredTaskCaption(color) {
 }
 
 addColoredTaskCaption('red');
+
+function selectTask(event) {
+  if (event.target.classList.contains('selected')) {
+    event.target.classList.remove('selected');
+  } else {
+    event.target.classList.add('selected');
+  }
+}
+
+function addEventToTasks() {
+  const taskCaptions = document.querySelectorAll('.task');
+
+  for (let caption of taskCaptions) {
+    caption.addEventListener('click', selectTask);
+  }
+}
+
+addEventToTasks();
