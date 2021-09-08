@@ -116,3 +116,14 @@ function createCustomTask(taskName) {
 }
 
 createCustomTask('cozinhar');
+
+function addColoredTaskCaption(color) {
+  const myTasks = document.querySelector('.my-tasks');
+  const caption = document.createElement('div');
+  caption.classList.add('task');
+  caption.style.backgroundColor = color;
+
+  myTasks.appendChild(caption);
+}
+
+addColoredTaskCaption('red');
