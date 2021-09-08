@@ -145,3 +145,22 @@ function addEventToTasks() {
 }
 
 addEventToTasks();
+
+function changeToTheSelectedColor(event) {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask !== null && event.target.style.color === '') {
+    event.target.style.color = selectedTask.style.backgroundColor;
+  } else {
+    event.target.style.color = '';
+  }
+}
+
+function addEventToMonthDays() {
+  const monthDays = document.querySelectorAll('.day');
+
+  for (let day of monthDays) {
+    day.addEventListener('click', changeToTheSelectedColor);
+  }
+}
+
+addEventToMonthDays();
