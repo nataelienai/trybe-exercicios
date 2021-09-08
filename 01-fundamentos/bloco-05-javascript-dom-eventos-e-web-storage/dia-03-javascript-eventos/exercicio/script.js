@@ -48,3 +48,20 @@ function createHolidaysButton(buttonText) {
 }
 
 createHolidaysButton('Feriados');
+
+function changeTheColorOfHolidays() {
+  const holidays = document.querySelectorAll('.holiday');
+  
+  if (holidays[0].style.backgroundColor === '') {
+    for (let holiday of holidays) {
+      holiday.style.backgroundColor = 'rgb(112, 217, 95)';
+    }
+  } else {
+    for (let holiday of holidays) {
+      holiday.style.backgroundColor = '';
+    }
+  }
+}
+
+const holidayButton = document.getElementById('btn-holiday');
+holidayButton.addEventListener('click', changeTheColorOfHolidays);
