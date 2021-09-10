@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Exercício 5.4</title>
+</head>
+<body>
+  <header>
+    <h1>HOJornal</h1>
+  </header>
+  <main>
+    <section class="new-section">
+      <h2>Primeira notícia do site</h2>
+      <article>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae leo in ex lacinia pharetra eu ac nibh. Cras ultricies et felis vehicula ultrices. Nam commodo mi tempus, pretium ante id, bibendum orci. Vestibulum a nisi sit amet dolor porta euismod sit amet id turpis. Nam diam dui, venenatis nec ipsum eget, tempus luctus neque. Etiam suscipit dui enim, et elementum magna blandit in. Donec a porttitor nibh.
+        </p>
+        <p>
+          Maecenas sit amet sapien justo. Aliquam convallis quis augue eget tincidunt. Donec a tincidunt turpis. Sed eu urna tincidunt quam auctor porta ac quis nisl. In magna orci, pharetra eget lectus et, tincidunt sagittis tortor. Suspendisse potenti. Aenean cursus venenatis mattis. Donec dapibus imperdiet eros eu fermentum.
+        </p>
+        <p>
+          Curabitur lacinia, lacus vitae vehicula malesuada, velit orci pretium purus, in scelerisque nunc dui in metus. Etiam rhoncus odio vitae odio porta maximus. Nunc non sem porta nulla consequat dictum non eget turpis. Nullam semper felis eu tincidunt dignissim. Integer auctor metus ac leo porta, eget consequat tellus dictum. Quisque ipsum urna, imperdiet eget gravida eget, faucibus quis nibh. Donec vulputate vel quam at vulputate. Vivamus tristique est metus, ac feugiat odio ultrices ut. Donec at enim tellus. Nunc in leo eget odio ornare elementum eget ac massa. Duis posuere egestas dui, sit amet luctus eros vestibulum quis. In sodales lectus orci, in semper est rhoncus non. Morbi pretium imperdiet dui vitae feugiat. In et congue velit, nec pharetra dolor.
+        </p>
+        <p>
+          Sed malesuada, velit et malesuada laoreet, risus ante ullamcorper tellus, sed facilisis leo lorem in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed sed leo volutpat, suscipit ipsum a, bibendum mauris. Nulla aliquam est sed elit porta, ut dictum ligula fermentum. Duis ac ex erat. Etiam vitae magna sed lacus convallis porttitor sit amet sit amet augue. Nullam consectetur cursus porta. Donec ipsum nisl, venenatis quis pharetra eu, suscipit ac ipsum. Praesent eget arcu tincidunt, porttitor dui rhoncus, tincidunt ligula. Sed a erat felis. Vivamus cursus tellus id dapibus sagittis.
+        </p>
+        <p>
+          Aliquam velit risus, tincidunt sed tristique in, iaculis a orci. Quisque id arcu velit. Nulla facilisi. Nulla facilisi. Duis luctus metus eget nisi lobortis, sit amet molestie mi ultrices. Sed nulla mi, volutpat vitae tortor eget, tristique tempus nisl. Sed rutrum velit vel ultrices aliquam. Vivamus ac mi blandit, euismod diam vel, efficitur sapien. Mauris luctus nisi sed nulla suscipit, a molestie odio blandit. Maecenas aliquam augue at quam interdum iaculis. Sed vel mauris justo.
+        </p>
+      </article>
+    </section>
+    <section class="new-section">
+      <h2>Opções</h2>
+      <section class="bg-color-section">
+        <h3>Cor de fundo</h3>
+        <input type="color" name="bg-color-input" id="bg-color-input" value="#ffffff">
+      </section>
+      <section class="text-color-section">
+        <h3>Cor do texto</h3>
+        <input type="color" name="text-color-input" id="text-color-input" value="#000000">
+      </section>
+
+      <section class="font-size-section">
+        <h3>Tamanho da fonte (em pixels)</h3>
+        <input type="number" name="font-size-input" id="font-size-input" min=0>
+        <button id="font-size-btn">Finalizar</button>
+      </section>
+
+      <section class="line-height-section">
+        <h3>Espaçamento entre as linhas do texto (em pixels)</h3>
+        <input type="number" name="line-height-input" id="line-height-input" min=0>
+        <button id="line-height-btn">Finalizar</button>
+      </section>
+      
+      <section class="font-family-section">
+        <h3>Tipo da fonte</h3>
+        <input type="button" class="font-family-btn" value="serif">
+        <input type="button" class="font-family-btn" value="sans-serif">
+        <input type="button" class="font-family-btn" value="monospace">
+      </section>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

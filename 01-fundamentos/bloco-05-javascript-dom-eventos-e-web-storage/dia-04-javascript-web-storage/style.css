@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.new-section {
+  background-color: white;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  margin: 20px auto;
+  max-width: 720px;
+  padding: 30px;
+}
