@@ -45,6 +45,28 @@ function generateStateOptions() {
 
 window.onload = generateStateOptions;
 
+function validateTextInput(id, maxLength, isRequired) {
+  const input = document.getElementById(id);
+
+  if (isRequired && input.value.length === 0 || input.value.length > maxLength) {
+    return false;
+  }
+  return true;
+}
+
+function validateStateOption() {
+  const stateInput = document.getElementById('state-input');
+
+  return stateInput.value.length > 0;
+}
+
+function validateResidenceInput() {
+  const apInput = document.getElementById('apartment-input');
+  const houseInput = document.getElementById('house-input');
+
+  return apInput.value.length > 0 || houseInput.value.length > 0;
+}
+
 function getDateFromString(date) {
   const units = date.split('/');
   if (units.length !== 3) {
@@ -63,31 +85,59 @@ function getDateFromString(date) {
   };
 }
 
-function isStartDateValid(event) {
+function validateStartDate() {
   const startDateInput = document.getElementById('start-date-input');
   const date = getDateFromString(startDateInput.value);
 
   if (date === null) {
-    window.alert('ERRO: O formato da data de início é inválido!');
-    event.preventDefault();
-    return;
+    return {result: false, detail: 'ERRO: O formato da data de início é inválido!'};
   }
-  if (date.day < 1 || date.day > 31) {
-    window.alert('ERRO: O dia da data de início é inválido!');
-    event.preventDefault();
-    return;
+  if (!(date.day > 0 && date.day <= 31)) {
+    return {result: false, detail: 'ERRO: O dia da data de início é inválido!'};
   }
-  if (date.month < 1 || date.month > 12) {
-    window.alert('ERRO: O mês da data de início é inválido!');
-    event.preventDefault();
-    return;
+  if (!(date.month > 0 && date.month <= 12)) {
+    return {result: false, detail: 'ERRO: O mês da data de início é inválido!'};
   }
-  if (date.year < 0) {
-    window.alert('ERRO: O ano não pode ser negativo!');
-    event.preventDefault();
-    return;
+  if (!(date.year >= 0)) {
+    return {result: false, detail: 'ERRO: O ano da data de início é inválido!'};
+  }
+  return {result: true};
+}
+
+function validateForm() {
+  const inputValidations = [
+    validateTextInput('name-input', 40, true),
+    validateTextInput('email-input', 50, true),
+    validateTextInput('cpf-input', 11, true),
+    validateTextInput('address-input', 200, true),
+    validateTextInput('city-input', 28, true),
+    validateStateOption(),
+    validateResidenceInput(),
+    validateTextInput('summary-input', 1000, true),
+    validateTextInput('job-title-input', 40, true),
+    validateTextInput('job-description-input', 500, true),
+  ];
+  const dateValidation = validateStartDate();
+
+  if (inputValidations.indexOf(false) >= 0) {
+    return {result: false, detail: 'ERRO: Dados inválidos!'};
+  }
+  if (dateValidation.result === false) {
+    return {result: false, detail: dateValidation.detail};
+  }
+  return {result: true};
+}
+
+function registerResume(event) {
+  event.preventDefault();
+
+  const formValidation = validateForm();
+  if (formValidation.result === false) {
+    window.alert(formValidation.detail);
+  } else {
+    window.alert('Dados cadastrados com sucesso!');
   }
 }
 
-const form = document.querySelector('form');
-form.addEventListener('submit', isStartDateValid);
+const submitButton = document.getElementById('submit-button');
+submitButton.addEventListener('click', registerResume);
