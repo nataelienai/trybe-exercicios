@@ -36,12 +36,19 @@
           </div>
           <fieldset>
             <legend>Tipo de residência</legend>
-            <input type="radio" name="residence" id="house-input">
+            <input type="radio" name="residence" id="house-input" required>
             <label for="house-input">Casa</label>
 
             <input type="radio" name="residence" id="apartment-input">
             <label for="apartment-input">Apartamento</label>
           </fieldset>
+        </fieldset>
+        <fieldset>
+          <legend>Dados do seu último emprego</legend>
+          <div>
+            <label for="summary-input">Resumo</label><br>
+            <textarea name="summary" id="summary-input" cols="50" rows="10" maxlength="1000" required></textarea>
+          </div>
         </fieldset>
       </form>
     </main>
