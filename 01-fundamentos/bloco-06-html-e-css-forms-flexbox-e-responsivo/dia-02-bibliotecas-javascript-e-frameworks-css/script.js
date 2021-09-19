@@ -154,8 +154,8 @@ function displayInputField(container, label, id) {
   const field = document.createElement('div');
   field.className = 'data-field';
 
-  createChild('h2', 'data-label', label, field);
-  createChild('p', 'data-value', input.value, field);
+  createChild('div', 'data-label', label, field);
+  createChild('div', 'data-value', input.value, field);
 
   container.appendChild(field);
 }
