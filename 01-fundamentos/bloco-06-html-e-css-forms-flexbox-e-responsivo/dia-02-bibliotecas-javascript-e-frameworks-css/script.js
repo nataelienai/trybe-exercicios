@@ -58,43 +58,6 @@ function validateInput(id, maxLength, isRequired, isRadio) {
   return true;
 }
 
-function getDateFromString(date) {
-  const units = date.split('/');
-  if (units.length !== 3) {
-    return null;
-  }
-
-  if (units[0].length === 0 || units[1].length === 0
-    || units[2].length === 0) {
-    return null;
-  }
-
-  return {
-    day: Number(units[0]),
-    month: Number(units[1]),
-    year: Number(units[2]),
-  };
-}
-
-function validateStartDate() {
-  const startDateInput = document.getElementById('start-date-input');
-  const date = getDateFromString(startDateInput.value);
-
-  if (date === null) {
-    return {result: false, detail: 'ERRO: O formato da data de início é inválido!'};
-  }
-  if (!(date.day > 0 && date.day <= 31)) {
-    return {result: false, detail: 'ERRO: O dia da data de início é inválido!'};
-  }
-  if (!(date.month > 0 && date.month <= 12)) {
-    return {result: false, detail: 'ERRO: O mês da data de início é inválido!'};
-  }
-  if (!(date.year >= 0)) {
-    return {result: false, detail: 'ERRO: O ano da data de início é inválido!'};
-  }
-  return {result: true};
-}
-
 function validateForm() {
   const inputValidations = [
     validateInput('name-input', 40, true, false),
@@ -109,13 +72,9 @@ function validateForm() {
     validateInput('job-title-input', 40, true, false),
     validateInput('job-description-input', 500, true, false),
   ];
-  const dateValidation = validateStartDate();
 
   if (inputValidations.indexOf(false) >= 0) {
     return {result: false, detail: 'ERRO: Dados inválidos!'};
-  }
-  if (dateValidation.result === false) {
-    return {result: false, detail: dateValidation.detail};
   }
   return {result: true};
 }
