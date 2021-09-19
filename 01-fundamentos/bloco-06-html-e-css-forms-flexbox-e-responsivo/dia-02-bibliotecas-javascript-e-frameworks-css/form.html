@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de currículo</title>
+  </head>
+  <body>
+    <header>
+      <h1>Cadastre seu currículo agora mesmo!</h1>
+    </header>
+    <main>
+      <form action="" method="GET">
+        <fieldset>
+          <legend>Dados pessoais</legend>
+          <div>
+            <label for="name-input">Nome:</label>
+            <input type="text" name="name" id="name-input" maxlength="40" required>
+          </div>
+          <div>
+            <label for="email-input">Email:</label>
+            <input type="email" name="email" id="email-input" maxlength="50" required>
+          </div>
+          <div>
+            <label for="cpf-input">CPF:</label>
+            <input type="text" name="cpf" id="cpf-input" maxlength="11" required>
+          </div>
+          <div>
+            <label for="address-input">Endereço:</label>
+            <input type="text" name="address" id="address-input" maxlength="200" required>
+          </div>
+          <div>
+            <label for="city-input">Cidade:</label>
+            <input type="text" name="city" id="city-input" maxlength="28" required>
+          </div>
+          <div>
+            <label for="state-input">Estado:</label>
+            <select name="state" id="state-input" required>
+            </select>
+          </div>
+          <fieldset>
+            <legend>Tipo de residência</legend>
+            <input type="radio" name="residence" id="house-input" value="Casa" required>
+            <label for="house-input">Casa</label>
+
+            <input type="radio" name="residence" id="apartment-input" value="Apartamento">
+            <label for="apartment-input">Apartamento</label>
+          </fieldset>
+        </fieldset>
+        <fieldset>
+          <legend>Dados do seu último emprego</legend>
+          <div>
+            <label for="summary-input">Resumo</label><br>
+            <textarea name="summary" id="summary-input" cols="50" rows="10" maxlength="1000" required></textarea>
+          </div>
+          <div>
+            <label for="job-title-input">Cargo:</label>
+            <input type="text" name="job-title" id="job-title-input" maxlength="40" required>
+          </div>
+          <div>
+            <label for="job-description-input">Descrição do cargo:</label>
+            <input type="text" name="job-description" id="job-description-input" maxlength="500" required>
+          </div>
+          <div>
+            <label for="start-date-input">Data de início:</label>
+            <input type="text" name="start-date" id="start-date-input" required>
+          </div>
+        </fieldset>
+        <button type="submit" id="submit-button">Cadastrar</button>
+        <button type="reset" id="reset-button">Limpar</button>
+      </form>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
