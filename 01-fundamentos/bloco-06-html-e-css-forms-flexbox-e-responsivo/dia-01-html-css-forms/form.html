@@ -40,10 +40,10 @@
           </div>
           <fieldset>
             <legend>Tipo de residência</legend>
-            <input type="radio" name="residence" id="house-input" required>
+            <input type="radio" name="residence" id="house-input" value="Casa" required>
             <label for="house-input">Casa</label>
 
-            <input type="radio" name="residence" id="apartment-input">
+            <input type="radio" name="residence" id="apartment-input" value="Apartamento">
             <label for="apartment-input">Apartamento</label>
           </fieldset>
         </fieldset>
@@ -67,6 +67,7 @@
           </div>
         </fieldset>
         <button type="submit" id="submit-button">Cadastrar</button>
+        <button type="reset" id="reset-button">Limpar</button>
       </form>
     </main>
     <script src="script.js"></script>

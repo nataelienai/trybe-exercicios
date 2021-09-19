@@ -1,42 +1,43 @@
-function createStateOption(state) {
+const states = [
+  'Acre',
+  'Alagoas',
+  'Amapá',
+  'Amazonas',
+  'Bahia',
+  'Ceará',
+  'Espírito Santo',
+  'Goiás',
+  'Maranhão',
+  'Mato Grosso',
+  'Mato Grosso do Sul',
+  'Minas Gerais',
+  'Pará',
+  'Paraíba',
+  'Paraná',
+  'Pernambuco',
+  'Piauí',
+  'Rio de Janeiro',
+  'Rio Grande de Norte',
+  'Rio Grande do Sul',
+  'Rondônia',
+  'Roraima',
+  'Santa Catarina',
+  'São Paulo',
+  'Sergipe',
+  'Tocantins',
+  'Distrito Federal',
+];
+
+function createStateOption(stateName) {
   let option = document.createElement('option');
-  option.innerText = state.name;
-  option.value = state.abbreviation;
+  option.innerText = stateName;
+  option.value = stateName;
 
   return option;
 }
 
 function generateStateOptions() {
   const stateInput = document.getElementById('state-input');
-  const states = [
-    {name: 'Acre', abbreviation: 'AC'},
-    {name: 'Alagoas', abbreviation: 'AL'},
-    {name: 'Amapá', abbreviation: 'AP'},
-    {name: 'Amazonas', abbreviation: 'AM'},
-    {name: 'Bahia', abbreviation: 'BA'},
-    {name: 'Ceará', abbreviation: 'CE'},
-    {name: 'Espírito Santo', abbreviation: 'ES'},
-    {name: 'Goiás', abbreviation: 'GO'},
-    {name: 'Maranhão', abbreviation: 'MA'},
-    {name: 'Mato Grosso', abbreviation: 'MT'},
-    {name: 'Mato Grosso do Sul', abbreviation: 'MS'},
-    {name: 'Minas Gerais', abbreviation: 'MG'},
-    {name: 'Pará', abbreviation: 'PA'},
-    {name: 'Paraíba', abbreviation: 'PB'},
-    {name: 'Paraná', abbreviation: 'PR'},
-    {name: 'Pernambuco', abbreviation: 'PE'},
-    {name: 'Piauí', abbreviation: 'PI'},
-    {name: 'Rio de Janeiro', abbreviation: 'RJ'},
-    {name: 'Rio Grande de Norte', abbreviation: 'RN'},
-    {name: 'Rio Grande do Sul', abbreviation: 'RS'},
-    {name: 'Rondônia', abbreviation: 'RO'},
-    {name: 'Roraima', abbreviation: 'RR'},
-    {name: 'Santa Catarina', abbreviation: 'SC'},
-    {name: 'São Paulo', abbreviation: 'SP'},
-    {name: 'Sergipe', abbreviation: 'SE'},
-    {name: 'Tocantins', abbreviation: 'TO'},
-    {name: 'Distrito Federal', abbreviation: 'DF'},
-  ];
 
   for (let index = 0; index < states.length; index++) {
     stateInput.appendChild(createStateOption(states[index]));
@@ -45,26 +46,16 @@ function generateStateOptions() {
 
 window.onload = generateStateOptions;
 
-function validateTextInput(id, maxLength, isRequired) {
+function validateInput(id, maxLength, isRequired, isRadio) {
   const input = document.getElementById(id);
 
+  if (isRadio && !input.checked) {
+    return false;
+  }
   if (isRequired && input.value.length === 0 || input.value.length > maxLength) {
     return false;
   }
   return true;
-}
-
-function validateStateOption() {
-  const stateInput = document.getElementById('state-input');
-
-  return stateInput.value.length > 0;
-}
-
-function validateResidenceInput() {
-  const apInput = document.getElementById('apartment-input');
-  const houseInput = document.getElementById('house-input');
-
-  return apInput.value.length > 0 || houseInput.value.length > 0;
 }
 
 function getDateFromString(date) {
@@ -106,16 +97,17 @@ function validateStartDate() {
 
 function validateForm() {
   const inputValidations = [
-    validateTextInput('name-input', 40, true),
-    validateTextInput('email-input', 50, true),
-    validateTextInput('cpf-input', 11, true),
-    validateTextInput('address-input', 200, true),
-    validateTextInput('city-input', 28, true),
-    validateStateOption(),
-    validateResidenceInput(),
-    validateTextInput('summary-input', 1000, true),
-    validateTextInput('job-title-input', 40, true),
-    validateTextInput('job-description-input', 500, true),
+    validateInput('name-input', 40, true, false),
+    validateInput('email-input', 50, true, false),
+    validateInput('cpf-input', 11, true, false),
+    validateInput('address-input', 200, true, false),
+    validateInput('city-input', 28, true, false),
+    validateInput('state-input', Infinity, true, false),
+    validateInput('house-input', Infinity, true, true)
+    || validateInput('apartment-input', Infinity, true, true),
+    validateInput('summary-input', 1000, true, false),
+    validateInput('job-title-input', 40, true, false),
+    validateInput('job-description-input', 500, true, false),
   ];
   const dateValidation = validateStartDate();
 
@@ -128,16 +120,104 @@ function validateForm() {
   return {result: true};
 }
 
+function clearDisplay() {
+  const errorMessage = document.getElementById('error-message');
+  const resume = document.getElementById('resume');
+
+  if (errorMessage !== null) {
+    errorMessage.remove();
+  }
+  if (resume !== null) {
+    resume.remove();
+  }
+}
+
+function displayError(msg) {
+  const main = document.querySelector('main');
+  const errorMessage = document.createElement('div');
+
+  errorMessage.id = 'error-message';
+  errorMessage.innerText = msg;
+
+  main.appendChild(errorMessage);
+}
+
+function createChild(tagName, className, innerText, container) {
+  const child = document.createElement(tagName);
+  child.className = className;
+  child.innerText = innerText;
+  container.appendChild(child);
+}
+
+function displayInputField(container, label, id) {
+  const input = document.getElementById(id);
+  const field = document.createElement('div');
+  field.className = 'data-field';
+
+  createChild('h2', 'data-label', label, field);
+  createChild('p', 'data-value', input.value, field);
+
+  container.appendChild(field);
+}
+
+function getCheckedRadioInputId(radioInputIds) {
+  for (let id of radioInputIds) {
+    const input = document.getElementById(id);
+    if (input.checked) {
+      return input.id
+    }
+  }
+}
+
+function displayResume() {
+  const main = document.querySelector('main');
+  const resume = document.createElement('div');
+  const fields = [
+    {label: 'Nome', id: 'name-input'},
+    {label: 'Email', id: 'email-input'},
+    {label: 'CPF', id: 'cpf-input'},
+    {label: 'Endereço', id: 'address-input'},
+    {label: 'Cidade', id: 'city-input'},
+    {label: 'Estado', id: 'state-input'},
+    {
+      label: 'Tipo de residência',
+      id: getCheckedRadioInputId(['apartment-input', 'house-input'])
+    },
+    {label: 'Resumo', id: 'summary-input'},
+    {label: 'Cargo', id: 'job-title-input'},
+    {label: 'Descrição do cargo', id: 'job-description-input'},
+    {label: 'Data de início', id: 'start-date-input'},
+  ];
+
+  for (let index = 0; index < fields.length; index++) {
+    displayInputField(resume, fields[index].label, fields[index].id)
+  }
+  resume.id = 'resume';
+  main.appendChild(resume);
+}
+
 function registerResume(event) {
   event.preventDefault();
+  clearDisplay();
 
   const formValidation = validateForm();
   if (formValidation.result === false) {
-    window.alert(formValidation.detail);
+    displayError(formValidation.detail);
   } else {
-    window.alert('Dados cadastrados com sucesso!');
+    displayResume();
   }
 }
 
 const submitButton = document.getElementById('submit-button');
 submitButton.addEventListener('click', registerResume);
+
+function resetRegistration(event) {
+  event.preventDefault();
+
+  const form = document.querySelector('form');
+  form.reset();
+  clearDisplay();
+}
+
+const resetButton = document.getElementById('reset-button');
+resetButton.addEventListener('click', resetRegistration);
