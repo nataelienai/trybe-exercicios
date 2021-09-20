@@ -46,59 +46,109 @@ function generateStateOptions() {
 
 window.onload = generateStateOptions;
 
-function validateInput(id, maxLength, isRequired, isRadio) {
-  const input = document.getElementById(id);
+const validation = new JustValidate('form', {
+  rules: {
+    name: {
+      required: true,
+      maxLength: 40,
+    },
+    email: {
+      required: true,
+      maxLength: 50,
+    },
+    cpf: {
+      required: true,
+      maxLength: 11,
+    },
+    address: {
+      required: true,
+      maxLength: 200,
+    },
+    city: {
+      required: true,
+      maxLength: 28,
+    },
+    state: {
+      required: true,
+    },
+    residence: {
+      required: true,
+    },
+    summary: {
+      required: true,
+      maxLength: 1000,
+    },
+    jobTitle: {
+      required: true,
+      maxLength: 40,
+    },
+    jobDescription: {
+      required: true,
+      maxLength: 500,
+    },
+    date: {
+      required: true,
+    }
+  },
+  messages: {
+    name: {
+      required: 'Nome inválido!',
+      maxLength: 'O nome deve ter no máximo 40 caracteres!',
+    },
+    email: {
+      required: 'Email inválido!',
+      maxLength:'O Email deve ter no máximo 50 caracteres!',
+    },
+    cpf: {
+      required: 'CPF inválido!',
+      maxLength:'O CPF deve ter no máximo 11 caracteres!',
+    },
+    address: {
+      required: 'Endereço inválido!',
+      maxLength:'O endereço deve ter no máximo 200 caracteres!',
+    },
+    city: {
+      required: 'Cidade inválida!',
+      maxLength:'A cidade deve ter no máximo 28 caracteres!',
+    },
+    state: {
+      required: 'Estado inválido!',
+    },
+    residence: {
+      required: 'Residência inválida!',
+    },
+    summary: {
+      required: 'Resumo inválido!',
+      maxLength:'O resumo deve ter no máximo 1000 caracteres!',
+    },
+    jobTitle: {
+      required: 'Cargo inválido!',
+      maxLength:'O cargo deve ter no máximo 40 caracteres!',
+    },
+    jobDescription: {
+      required: 'Descrição inválida!',
+      maxLength: 'A descrição deve ter no máximo 500 caracteres!',
+    },
+    date: {
+      required: 'Data inválida!',
+    }
+  },
+  focusWrongField: true,
+  submitHandler: displayResume,
+});
 
-  if (isRadio && !input.checked) {
-    return false;
-  }
-  if (isRequired && input.value.length === 0 || input.value.length > maxLength) {
-    return false;
-  }
-  return true;
-}
-
-function validateForm() {
-  const inputValidations = [
-    validateInput('name-input', 40, true, false),
-    validateInput('email-input', 50, true, false),
-    validateInput('cpf-input', 11, true, false),
-    validateInput('address-input', 200, true, false),
-    validateInput('city-input', 28, true, false),
-    validateInput('state-input', Infinity, true, false),
-    validateInput('house-input', Infinity, true, true)
-    || validateInput('apartment-input', Infinity, true, true),
-    validateInput('summary-input', 1000, true, false),
-    validateInput('job-title-input', 40, true, false),
-    validateInput('job-description-input', 500, true, false),
-  ];
-
-  if (inputValidations.indexOf(false) >= 0) {
-    return {result: false, detail: 'ERRO: Dados inválidos!'};
-  }
-  return {result: true};
-}
+const startDateInput = document.getElementById('start-date-input');
+startDateInput.DatePickerX.init({
+  mondayFirst: false,
+  format: 'dd/mm/yyyy'
+});
 
 function clearDisplay() {
-  const errorMessage = document.getElementById('error-message');
   const resume = document.getElementById('resume');
 
-  if (errorMessage !== null) {
-    errorMessage.remove();
-  }
   if (resume !== null) {
     resume.remove();
   }
-}
-
-function displayError(msg) {
-  const main = document.querySelector('main');
-  const errorMessage = document.createElement('div');
-
-  errorMessage.id = 'error-message';
-  errorMessage.innerText = msg;
-
-  main.appendChild(errorMessage);
 }
 
 function createChild(tagName, className, innerText, container) {
@@ -154,21 +204,6 @@ function displayResume() {
   resume.id = 'resume';
   main.appendChild(resume);
 }
-
-function registerResume(event) {
-  event.preventDefault();
-  clearDisplay();
-
-  const formValidation = validateForm();
-  if (formValidation.result === false) {
-    displayError(formValidation.detail);
-  } else {
-    displayResume();
-  }
-}
-
-const submitButton = document.getElementById('submit-button');
-submitButton.addEventListener('click', registerResume);
 
 function resetRegistration(event) {
   event.preventDefault();
