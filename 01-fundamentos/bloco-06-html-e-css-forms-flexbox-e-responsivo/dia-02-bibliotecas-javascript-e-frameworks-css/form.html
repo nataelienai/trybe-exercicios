@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de currículo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="DatePickerX/DatePickerX.min.css">
+    <link rel="stylesheet" href="just-validate/just-validate.min.css">
+    <script src="DatePickerX/DatePickerX.min.js"></script>
+    <script src="just-validate/just-validate.min.js"></script>
+  </head>
+  <body class="bg-light">
+    <div class="container col-xl-10 col-xxl-6 py-5">
+      <header>
+        <h1 class="text-primary">Cadastre seu currículo agora mesmo!</h1>
+      </header>
+      <main>
+        <form class="my-5" action="#">
+          <fieldset class="mb-5">
+            <legend class="mb-4">Dados pessoais</legend>
+            <div class="row mb-3 align-items-center">
+              <label class="col-sm-2 col-form-label text-muted text-muted" for="name-input">Nome</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="name" id="name-input" data-validate-field="name">
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label class="col-sm-2 col-form-label text-muted" for="email-input">Email</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="email" name="email" id="email-input" data-validate-field="email">
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label class="col-sm-2 col-form-label text-muted" for="cpf-input">CPF</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="cpf" id="cpf-input" data-validate-field="cpf">
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label class="col-sm-2 col-form-label text-muted" for="address-input">Endereço</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="address" id="address-input" data-validate-field="address">
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label class="col-sm-2 col-form-label text-muted" for="city-input">Cidade</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="city" id="city-input" data-validate-field="city">
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <label class="col-sm-2 col-form-label text-muted" for="state-input">Estado</label>
+              <div class="col-sm-10">
+                <select class="form-select" name="state" id="state-input" data-validate-field="state">
+                </select>
+              </div>
+            </div>
+            <fieldset class="row mb-3 mt-4">
+              <legend class="col-sm-2 col-form-label text-muted pt-0">Tipo de residência</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="residence" id="house-input" value="Casa" data-validate-field="residence">
+                  <label class="form-check-label" for="house-input">Casa</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="residence" id="apartment-input" value="Apartamento" data-validate-field="residence">
+                  <label class="form-check-label" for="apartment-input">Apartamento</label>
+                </div>
+              </div>
+            </fieldset>
+          </fieldset>
+          <fieldset>
+            <legend class="mb-4">Dados do seu último emprego</legend>
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label text-muted pt-0" for="summary-input">Resumo</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" name="summary" id="summary-input" cols="50" rows="10" data-validate-field="summary"></textarea>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label class="col-sm-2 col-form-label text-muted" for="job-title-input">Cargo</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="job-title" id="job-title-input" data-validate-field="jobTitle">
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label class="col-sm-2 col-form-label text-muted" for="job-description-input">Descrição do cargo</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="job-description" id="job-description-input" data-validate-field="jobDescription">
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label class="col-sm-2 col-form-label text-muted" for="start-date-input">Data de início</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="start-date" id="start-date-input" data-validate-field="date">
+              </div>
+            </div>
+          </fieldset>
+          <div class="mt-4">
+            <button class="btn btn-primary me-md-2" type="submit" id="submit-button">Cadastrar</button>
+            <button class="btn btn-danger" type="reset" id="reset-button">Limpar</button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
