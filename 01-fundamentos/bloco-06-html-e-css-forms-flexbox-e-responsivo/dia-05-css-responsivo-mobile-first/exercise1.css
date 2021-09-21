@@ -1,12 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-size: 18px;
+  font-size: 24px;
   margin: 0 40px;
 }
+
 h1 {
-  font-size: 28px;
+  font-size: 36px;
+  margin: 30px 0;
 }
+
 h2 {
-  font-size: 24px;
+  font-size: 28px;
+  margin: 30px 0;
 }
 
 img {
@@ -14,5 +24,50 @@ img {
 }
 
 figure {
-  margin: 50px 0;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    background-color: #EEE;
+    font-size: 26px;
+    margin: 0 60px;
+  }
+  h1 {
+    font-size: 38px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  figure {
+    padding-right: 20px;
+  }
+  .figure-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .figure-container figure {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  body {
+    background-color: #DDD;
+    font-size: 28px;
+    margin: 0 auto;
+    max-width: 1100px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  figure {
+    margin-bottom: 50px;
+  }
 }
