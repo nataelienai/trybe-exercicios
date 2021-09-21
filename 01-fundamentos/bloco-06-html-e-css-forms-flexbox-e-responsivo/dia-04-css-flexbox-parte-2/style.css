@@ -17,11 +17,13 @@ body {
 .logo-container {
   display: flex;
   justify-content: center;
+  order: 0;
 }
 
 .menu-container {
   display: flex;
   flex-basis: 500px;
+  order: 1;
 }
 
 .menu-container ul {
