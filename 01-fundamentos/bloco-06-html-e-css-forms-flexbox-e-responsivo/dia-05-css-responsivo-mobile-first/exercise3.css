@@ -90,3 +90,14 @@
     float: none;
   }
 }
+
+@media screen and (max-width: 700px) {
+  #content, #aside, #navigation li a {
+    float: none;
+  }
+
+  #navigation {
+    margin: 10px 0;
+    font-weight: bold;
+  }
+}
