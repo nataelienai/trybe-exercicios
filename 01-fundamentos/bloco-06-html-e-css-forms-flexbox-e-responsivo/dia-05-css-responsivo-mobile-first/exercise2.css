@@ -1,0 +1,27 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 20px;
+}
+
+header p {
+  font-size: 32px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  list-style: none;
+}
+
+.main-content p {
+  text-align: justify;
+}
