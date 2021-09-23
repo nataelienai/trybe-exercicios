@@ -8,6 +8,7 @@ html {
 
 body {
   padding: 20px;
+  font-size: 1.2em;
 }
 
 header p {
@@ -24,4 +25,19 @@ ul li {
 
 .main-content p {
   text-align: justify;
+}
+
+@media screen and (min-width: 720px) and (max-width: 1099px) {
+  body {
+    font-size: 1.1em;
+  }
+
+  .aside-container {
+    display: flex;
+    flex-basis: 50%;
+  }
+
+  .aside-two {
+    margin-left: 40px;
+  }
 }
