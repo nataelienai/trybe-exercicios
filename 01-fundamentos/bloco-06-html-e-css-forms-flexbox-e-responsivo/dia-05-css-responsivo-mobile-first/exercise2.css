@@ -41,3 +41,24 @@ ul li {
     margin-left: 40px;
   }
 }
+
+@media screen and (min-width: 1100px) {
+  body {
+    font-size: 1em;
+  }
+  .container {
+    max-width: 1000px;
+    margin: auto;
+  }
+  .whole-content {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .aside-container {
+    flex-basis: 30%;
+    margin-left: 50px;
+  }
+  .main-content {
+    flex-basis: 70%;
+  }
+}
