@@ -1,9 +1,5 @@
 function factorial(n) {
-  let fac = 1;
-  for (let i = n; i > 1; i--) {
-    fac *= i;
-  }
-  return fac;
+  return n > 1 ? factorial(n - 1) * n : n;
 }
 
 console.log(factorial(5));
