@@ -41,3 +41,11 @@ const allLessons = Object.assign({},
   {lesson2: lesson2},
   {lesson3: lesson3}
 );
+
+function getNumberOfStudents() {
+  let numberOfStudents = 0;
+  for (let index in allLessons) {
+    numberOfStudents += allLessons[index].numeroEstudantes;
+  }
+  return numberOfStudents;
+}
