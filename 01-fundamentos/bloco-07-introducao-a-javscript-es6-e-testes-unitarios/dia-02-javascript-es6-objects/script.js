@@ -35,15 +35,21 @@ const order = {
 };
 
 const customerInfo = (order) => {
-  // Adicione abaixo as informações necessárias.
-
+  return `Olá ${order.order.delivery.deliveryPerson}, ` +
+  `entrega para: ${order.name}, Telefone: ${order.phoneNumber},` +
+  `${order.address.street}, Nº: ${order.address.number}, ` +
+  `AP: ${order.address.apartment}`;
 }
 
-customerInfo(order);
+console.log(customerInfo(order));
 
 const orderModifier = (order) => {
-  // Adicione abaixo as informações necessárias.
+  order.order.delivery.deliveryPerson = 'Luiz Silva';
+  order.payment.total = 50;
 
+  return `Olá ${order.order.delivery.deliveryPerson}, ` + 
+  `o total do seu pedido de marguerita, pepperoni e Coca-Cola Zero é ` +
+  `R$ ${(order.payment.total).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}.`;
 }
 
-orderModifier(order);
+console.log(orderModifier(order));
