@@ -54,3 +54,16 @@ function getValueByNumber(object, index) {
   let values = Object.values(object);
   return values[index];
 }
+
+function verifyPair(object, key, value) {
+  let entries = Object.entries(object);
+  for (let entry of entries) {
+    if (entry.includes(key) && entry.includes(value)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(verifyPair(lesson3, 'turno', 'noite'));
+console.log(verifyPair(lesson3, 'materia', 'Maria Clara'));
