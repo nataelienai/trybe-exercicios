@@ -23,3 +23,7 @@ function addProperty(target, key, value) {
 }
 
 addProperty(lesson2, 'turno', 'noite');
+
+function listKeys(object) {
+  return Object.keys(object);
+}
