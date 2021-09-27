@@ -27,3 +27,7 @@ addProperty(lesson2, 'turno', 'noite');
 function listKeys(object) {
   return Object.keys(object);
 }
+
+function getLength(object) {
+  return Object.keys(object).length;
+}
