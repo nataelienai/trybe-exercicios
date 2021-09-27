@@ -31,3 +31,7 @@ function listKeys(object) {
 function getLength(object) {
   return Object.keys(object).length;
 }
+
+function listValues(object) {
+  return Object.values(object);
+}
