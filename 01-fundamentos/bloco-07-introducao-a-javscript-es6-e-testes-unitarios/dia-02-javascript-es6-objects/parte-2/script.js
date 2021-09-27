@@ -49,3 +49,8 @@ function getNumberOfStudents() {
   }
   return numberOfStudents;
 }
+
+function getValueByNumber(object, index) {
+  let values = Object.values(object);
+  return values[index];
+}
