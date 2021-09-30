@@ -40,3 +40,5 @@ function decode(string) {
   }
   return decodedString;
 }
+
+module.exports = {encode, decode};
