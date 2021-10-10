@@ -10,7 +10,13 @@ const expectedResult = [
 ];
 
 function studentAverage() {
-  // escreva seu código aqui
+  return students.map((student, index) => {
+    const gradeSum = grades[index].reduce((acc, number) => acc + number);
+    return {
+      name: student,
+      average: gradeSum / grades[index].length
+    };
+  });
 }
 
 assert.deepStrictEqual(studentAverage(), expectedResult);
