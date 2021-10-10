@@ -1,3 +1,5 @@
+const assert = require('assert');
+
 const people = [
   {
     name: 'Nicole',
@@ -26,4 +28,17 @@ const people = [
   },
 ];
 
-// escreva filterPeople abaixo
+const filterPeople = (people) => {
+  return people.filter(({ bornIn, nationality }) => (
+    bornIn >= 1901 && bornIn <= 2000 && nationality === 'Australian'
+  ));
+}
+
+const expected = [
+  { name: 'Nicole', bornIn: 1992, nationality: 'Australian' },
+  { name: 'Toby', bornIn: 1901, nationality: 'Australian' }
+];
+
+const received = filterPeople(people);
+
+assert.deepStrictEqual(received, expected);
