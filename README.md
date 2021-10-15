@@ -35,7 +35,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 4-4: _JavaScript - Objetos e funções_
 - [X] 4-5: _[Projeto - Playground Functions](https://github.com/nataelienai/nataelienai.github.io/tree/main/projetos/playground-functions)_
 
-##### Bloco 5: Introdução - JavaScript - Projetos
+##### Bloco 5: JavaScript - DOM, Eventos e Web Storage
 
 - [X] 5-1: _JavaScript - DOM e seletores_
 - [X] 5-2: _JavaScript - Trabalhando com elementos_
@@ -63,7 +63,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 7-3: _Testes unitários em JavaScript_
 - [X] 7-4: _[Projeto - JavaScript Testes Unitários](https://github.com/nataelienai/nataelienai.github.io/tree/main/projetos/js-unit-tests)_
 
-##### Bloco 8: JavaScript ES6
+##### Bloco 8: JavaScript ES6 - Higher Order Functions
 
 - [X] 8-1: _JavaScript ES6 - Introdução a Higher Order Functions_
 - [X] 8-2: _JavaScript ES6 - Higher Order Functions - forEach, find, some, every, sort_
@@ -72,18 +72,12 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 8-5: _JavaScript ES6 - spread operator, rest parameter, destructuring e mais_
 - [X] 8-6: _[Projeto - Zoo functions](https://github.com/nataelienai/nataelienai.github.io/tree/main/projetos/zoo-functions)_
 
-##### Bloco 9: Assincronicidade & Callbacks
+##### Bloco 9: JavaScript & Testes Assíncronos
 
 - [ ] 9-1: _JavaScript Assíncrono e Callbacks_
-- [ ] 9-2: _JavaScript Promises_
-- [ ] 9-3: _[Projeto - Carrinho de Compras]()_
-
-##### Bloco 10: Jest
-
-- [ ] 10-1: _Primeiros passos no Jest_
-- [ ] 10-2: _Jest - Testes Assíncronos_
-- [ ] 10-3: _Jest - Simulando comportamentos_
-- [ ] 10-4: _[Projeto - Jest Assíncrono e Mocking]()_
+- [ ] 9-2: _JavaScript Assíncrono - Fetch API e async/await_
+- [ ] 9-3: _Jest - Testes Assíncronos_
+- [ ] 9-4: _[Projeto - Carrinho de Compras]()_
 
 ## Desenvolvimento Front-end :hourglass_flowing_sand:
 
