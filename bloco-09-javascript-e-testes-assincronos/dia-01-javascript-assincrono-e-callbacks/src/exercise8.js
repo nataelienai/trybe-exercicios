@@ -31,7 +31,13 @@ function getPokemonDetails(filter, callback) {
   }, 2000);
 }
 
-getPokemonDetails();
+getPokemonDetails((pokemon) => pokemon.name === 'Charmander', (error, message) => {
+  if (message) {
+    console.log(message);
+  } else {
+    console.log(`Erro: ${error.message}`);
+  }
+});
 
 module.exports = {
   getPokemonDetails,
