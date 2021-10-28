@@ -1,0 +1,9 @@
+.pokemon-card {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 10px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+}
