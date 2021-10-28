@@ -1,0 +1,15 @@
+.pokedex h1 {
+  text-align: center;
+}
+
+.pokemon-card-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 600px) {
+  .pokemon-card-section {
+    flex-direction: row;
+  }
+}
