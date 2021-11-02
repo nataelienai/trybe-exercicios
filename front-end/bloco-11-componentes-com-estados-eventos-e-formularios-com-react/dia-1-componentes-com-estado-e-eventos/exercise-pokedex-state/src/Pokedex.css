@@ -1,0 +1,39 @@
+.pokedex {
+  display: flex;
+  justify-content: center;
+  margin: 10px 10px;
+}
+
+.filter-btn,
+.next-btn {
+  font-size: 16px;
+  padding: 8px 12px;
+  margin: 4px;
+  border: 0;
+  border-radius: 0.3rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.filter-btn {
+  background-color: #fff;
+  border: 1px solid #555;
+  color: #555;
+}
+
+.filter-btn:hover {
+  cursor: pointer;
+  background-color: #555;
+  color: #fff;
+}
+
+.next-btn {
+  background-color: rgb(14, 136, 65);
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.next-btn:hover {
+  cursor: pointer;
+  background-color: rgb(15, 172, 80);
+}

@@ -1,0 +1,11 @@
+.pokemon {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px #555 solid;
+  border-radius: 0.25rem;
+  max-width: 400px;
+  min-width: 25%;
+  margin: 10px 10px;
+}
