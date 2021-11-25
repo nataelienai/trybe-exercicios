@@ -7,32 +7,50 @@ class App extends Component {
     super(props);
 
     this.state = {
-      listTodo: [],
+      todoList: [],
+      selectedTodoIndex: undefined,
     };
 
     this.addTodo = this.addTodo.bind(this);
+    this.selectTodo = this.selectTodo.bind(this);
+    this.removeSelectedTodo = this.removeSelectedTodo.bind(this);
   }
 
   addTodo(todo) {
-    this.setState((state) => ({ listTodo: [...state.listTodo, todo] }));
+    this.setState((state) => ({ todoList: [...state.todoList, todo] }));
+  }
+
+  selectTodo(index) {
+    this.setState({ selectedTodoIndex: index });
+  }
+
+  removeSelectedTodo() {
+    this.setState((state) => {
+      const todoList = [...state.todoList];
+      return {
+        todoList: todoList.filter((_, index) => index !== state.selectedTodoIndex),
+        selectedTodoIndex: undefined,
+      };
+    });
   }
 
   render() {
-    const { listTodo } = this.state;
+    const { todoList } = this.state;
     return (
       <div className="App">
         <InputTodo addTodo={ (todo) => this.addTodo(todo) } />
-        {listTodo && (
+        {todoList && (
           <ul>
             {
-              listTodo.map((todo, index) => (
+              todoList.map((todo, index) => (
                 <li key={ index + 1 }>
-                  <Item content={ todo } />
+                  <Item content={ todo } handleClick={ () => this.selectTodo(index) } />
                 </li>
               ))
             }
           </ul>
         )}
+        <input type="button" value="Remover" onClick={ this.removeSelectedTodo } />
       </div>
     );
   }
