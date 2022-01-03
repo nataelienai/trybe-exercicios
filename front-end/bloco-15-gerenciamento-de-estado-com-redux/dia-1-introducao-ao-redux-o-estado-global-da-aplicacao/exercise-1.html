@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      #container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        height: 50px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <p>Color: <span id="value">white</span></p>
+      <button id="previous">Previous color</button>
+      <button id="next">Next color</button>
+      <button id="random">Random color</button>
+    </div>
+    <script>
+      const INITIAL_STATE = {
+        colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
+        index: 0,
+      };
+
+      const NEXT_COLOR = 'NEXT_COLOR';
+      const PREVIOUS_COLOR = 'PREVIOUS_COLOR';
+      const RANDOM_COLOR = 'RANDOM_COLOR';
+
+      function criarCor() {
+        const oneChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+        let cor = '#';
+        const aleatorio = () => Math.floor(Math.random() * oneChar.length);
+        for (let i = 0; i < 6; i += 1) {
+            cor += oneChar[aleatorio()];
+        }
+        return cor;
+      }
+
+      const reducer = (state = INITIAL_STATE, action) => {
+        switch (action.type) {
+          case NEXT_COLOR:
+            const nextIndex = (state.index + 1) % state.colors.length;
+            return { ...state, index: nextIndex };
+          case PREVIOUS_COLOR:
+            const prevIndex = state.index > 0 ? state.index - 1 : state.colors.length - 1;
+            return { ...state, index: prevIndex };
+          case RANDOM_COLOR:
+            const index = state.colors.length;
+            return { colors: [...state.colors, criarCor()], index };
+          default:
+            return INITIAL_STATE;
+        }
+      };
+
+      const store = Redux.createStore(reducer);
+
+      const nextColorBtn = document.getElementById('next');
+      const previousColorBtn = document.getElementById('previous');
+      const randomColorBtn = document.getElementById('random');
+
+      nextColorBtn.addEventListener('click', () => {
+        store.dispatch({ type: NEXT_COLOR });
+      });
+
+      previousColorBtn.addEventListener('click', () => {
+        store.dispatch({ type: PREVIOUS_COLOR });
+      });
+
+      randomColorBtn.addEventListener('click', () => {
+        store.dispatch({ type: RANDOM_COLOR });
+      });
+
+      store.subscribe(() => {
+        const { colors, index } = store.getState();
+
+        const colorValue = document.getElementById('value');
+        colorValue.innerHTML = colors[index];
+
+        const container = document.getElementById('container');
+        container.style.backgroundColor = colors[index];
+      })
+    </script>
+  </body>
+</html>
