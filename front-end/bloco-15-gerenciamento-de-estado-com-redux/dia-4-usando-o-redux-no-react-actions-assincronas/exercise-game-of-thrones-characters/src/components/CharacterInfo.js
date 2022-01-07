@@ -1,9 +1,10 @@
 import React from 'react';
-// importe o connect do 'react-redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class CharacterInfo extends React.Component {
   render() {
-    //faça a desestruturação das props aqui
+    const { loading, character, error } = this.props;
 
     if (!loading && character) {
       return (
@@ -21,9 +22,16 @@ class CharacterInfo extends React.Component {
   }
 };
 
-//mapeie o estado global para a propriedade da sua aplicação
+CharacterInfo.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  character: PropTypes.object,
+  error: PropTypes.string.isRequired,
+};
 
+const mapStateToProps = (state) => ({
+  loading: state.characterRequest.loading,
+  character: state.characterRequest.character,
+  error: state.characterRequest.error,
+});
 
-// conecte este componente ao redux aqui
-
-//faça as propTypes
+export default connect(mapStateToProps)(CharacterInfo);

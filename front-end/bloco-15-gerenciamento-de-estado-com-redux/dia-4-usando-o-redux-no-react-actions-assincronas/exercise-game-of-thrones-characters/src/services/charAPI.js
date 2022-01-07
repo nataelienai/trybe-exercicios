@@ -1,7 +1,7 @@
-const APIURL = 'https://anapioficeandfire.com/api/characters?name='
+const API_URL = 'https://anapioficeandfire.com/api/characters?name=';
 
 const charAPI = (char) => (
-  fetch(`${APIURL}${char.split().join('+')}`)
+  fetch(`${API_URL}${char.split().join('+')}`)
     .then((response) => (
       response
         .json()
