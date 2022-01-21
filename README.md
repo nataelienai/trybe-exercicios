@@ -118,15 +118,15 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 15-3: _React com Redux - Prática_
 - [X] 15-4: _React com Redux - Parte 2_
 - [X] 15-5: _Testes com React-Redux_
-- [ ] 15-6: _[Projeto - Trybe Wallet]()_
+- [X] 15-6: _[Projeto - Trybe Wallet]()_
 
 ##### Bloco 16: Projeto React
 
-- [ ] 16-1: _[Projeto - Jogo de Trivia]()_
+- [X] 16-1: _[Projeto - Jogo de Trivia]()_
 
 ##### Bloco 17: React & Context API
 
-- [ ] 17-1: _Context API do React_
+- [X] 17-1: _Context API do React_
 - [ ] 17-2: _React Hooks - useState e useContext_
 - [ ] 17-3: _React Hooks - useEffect e Hooks customizados_
 - [ ] 17-4: _[Projeto - StarWars Datatable com Context API e Hooks]()_
