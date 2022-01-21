@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 
 const renderOptions = (options) => (
   options.map((option) => (
-    <option
-      value={option}
-      key={option}
-    >
-      {option}
+    <option key={ option } value={ option }>
+      { option }
     </option>
   ))
 );
@@ -16,8 +13,8 @@ const Selector = ({ value, onChange, options }) => (
   <span>
     <h1>{`Selected: ${value}`}</h1>
     <select
-      onChange={(e) => onChange(e.target.value)}
-      value={value}
+      value={ value }
+      onChange={ (event) => onChange(event.target.value) }
     >
       {renderOptions(options)}
     </select>
@@ -27,7 +24,7 @@ const Selector = ({ value, onChange, options }) => (
 Selector.propTypes = {
   onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(
-    PropTypes.string.isRequired,
+    PropTypes.string,
   ).isRequired,
   value: PropTypes.string.isRequired,
 };
