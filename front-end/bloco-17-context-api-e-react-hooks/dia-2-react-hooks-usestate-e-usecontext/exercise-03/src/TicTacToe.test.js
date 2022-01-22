@@ -1,12 +1,17 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import TicTacToe from './TicTacToe';
+import { GameProvider } from './contexts/GameContext';
 
 afterEach(cleanup);
 
 describe("gameboard's starting status", () => {
   test('renders nine game cells', () => {
-    const { getByTestId } = render(<TicTacToe />);
+    const { getByTestId } = render(
+      <GameProvider>
+        <TicTacToe />
+      </GameProvider>
+    );
 
     for (let i = 0; i <= 8; i += 1) {
       expect(getByTestId(`cell_${i}`)).toBeDefined();
@@ -14,13 +19,21 @@ describe("gameboard's starting status", () => {
   });
 
   test('renders game board, at first, without any symbols', () => {
-    const { queryByAltText } = render(<TicTacToe />);
+    const { queryByAltText } = render(
+      <GameProvider>
+        <TicTacToe />
+      </GameProvider>
+    );
     expect(queryByAltText('X')).toBeNull();
     expect(queryByAltText('O')).toBeNull();
   });
 
   test("renders no 'Player O Ganhou' message at game's start", () => {
-    const { queryByText } = render(<TicTacToe />);
+    const { queryByText } = render(
+      <GameProvider>
+        <TicTacToe />
+      </GameProvider>
+    );
 
     expect(queryByText('Player O Ganhou')).toBeNull();
   });
@@ -28,7 +41,11 @@ describe("gameboard's starting status", () => {
 
 describe("gamecell's behaviour", () => {
   test('clicking a game cell creates a symbol in it and nowhere else', () => {
-    const { getByTestId, getAllByAltText, queryByAltText } = render(<TicTacToe />);
+    const { getByTestId, getAllByAltText, queryByAltText } = render(
+      <GameProvider>
+        <TicTacToe />
+      </GameProvider>
+    );
 
     fireEvent.click(getByTestId('cell_0'));
     expect(getAllByAltText('X')).toHaveLength(1);
@@ -44,11 +61,12 @@ describe("gamecell's behaviour", () => {
   });
 
   test("toggles symbols when clicking the cells starting by 'X'", () => {
-    const {
-      getByTestId, getByAltText, getAllByAltText, queryByTestId,
-    } = render(
-      <TicTacToe />,
-    );
+    const { getByTestId, getByAltText, getAllByAltText, queryByTestId } =
+      render(
+        <GameProvider>
+          <TicTacToe />
+        </GameProvider>
+      );
 
     fireEvent.click(getByTestId('cell_0'));
     expect(getByAltText('X')).toBeDefined();
@@ -62,7 +80,11 @@ describe("gamecell's behaviour", () => {
   });
 
   test("doesn't toggle symbols when clicking cells already filled", () => {
-    const { getByTestId, getByAltText, queryByAltText } = render(<TicTacToe />);
+    const { getByTestId, getByAltText, queryByAltText } = render(
+      <GameProvider>
+        <TicTacToe />
+      </GameProvider>
+    );
 
     fireEvent.click(getByTestId('cell_0'));
     expect(getByAltText('X')).toBeDefined();
@@ -73,7 +95,11 @@ describe("gamecell's behaviour", () => {
   });
 
   test("doesn't alter older symbols when clicking on new cells", () => {
-    const { getByTestId, getByAltText, getAllByAltText } = render(<TicTacToe />);
+    const { getByTestId, getByAltText, getAllByAltText } = render(
+      <GameProvider>
+        <TicTacToe />
+      </GameProvider>
+    );
 
     fireEvent.click(getByTestId('cell_0'));
     const cellZeroImage = getByTestId('cell_0_image');
@@ -92,7 +118,11 @@ describe("gamecell's behaviour", () => {
   });
 
   test("doesn't change a cell's symbol if it's clicked twice", () => {
-    const { getByTestId, getByAltText, queryByAltText } = render(<TicTacToe />);
+    const { getByTestId, getByAltText, queryByAltText } = render(
+      <GameProvider>
+        <TicTacToe />
+      </GameProvider>
+    );
 
     fireEvent.click(getByTestId('cell_0'));
     const cellZeroImage = getByTestId('cell_0_image');
@@ -115,24 +145,27 @@ winnerSymbols.forEach((winnerSymbol) => {
 
     const firstCellsOfLines = [0, 3, 6];
     firstCellsOfLines.forEach((cellId) => {
-      test(`same symbols in a line archive victory starting at cell ${cellId}`,
-        () => {
-          const opponentsLine = getStartOfAnotherLine(cellId);
-          const { getByTestId, queryByText } = render(<TicTacToe />);
+      test(`same symbols in a line archive victory starting at cell ${cellId}`, () => {
+        const opponentsLine = getStartOfAnotherLine(cellId);
+        const { getByTestId, queryByText } = render(
+          <GameProvider>
+            <TicTacToe />
+          </GameProvider>
+        );
 
-          if (winnerSymbol === 'O') {
-            const cellNotRelatedToVictory = getStartOfAnotherLine(opponentsLine);
-            fireEvent.click(getByTestId(`cell_${cellNotRelatedToVictory}`));
-          }
+        if (winnerSymbol === 'O') {
+          const cellNotRelatedToVictory = getStartOfAnotherLine(opponentsLine);
+          fireEvent.click(getByTestId(`cell_${cellNotRelatedToVictory}`));
+        }
 
-          fireEvent.click(getByTestId(`cell_${cellId}`));
-          fireEvent.click(getByTestId(`cell_${opponentsLine}`));
-          fireEvent.click(getByTestId(`cell_${cellId + 1}`));
-          fireEvent.click(getByTestId(`cell_${opponentsLine + 1}`));
-          fireEvent.click(getByTestId(`cell_${cellId + 2}`));
-          const winPlayer = winnerSymbol === 'O' ? 'O' : 'X';
-          expect(queryByText(`Player ${winPlayer} Ganhou`)).not.toBeNull();
-        });
+        fireEvent.click(getByTestId(`cell_${cellId}`));
+        fireEvent.click(getByTestId(`cell_${opponentsLine}`));
+        fireEvent.click(getByTestId(`cell_${cellId + 1}`));
+        fireEvent.click(getByTestId(`cell_${opponentsLine + 1}`));
+        fireEvent.click(getByTestId(`cell_${cellId + 2}`));
+        const winPlayer = winnerSymbol === 'O' ? 'O' : 'X';
+        expect(queryByText(`Player ${winPlayer} Ganhou`)).not.toBeNull();
+      });
     });
 
     const getStartOfAnotherColumn = (cellId) => {
@@ -145,10 +178,15 @@ winnerSymbols.forEach((winnerSymbol) => {
     firstCellsOfColumns.forEach((cellId) => {
       test(`same symbols in a column archive victory starting at column ${cellId}`, () => {
         const opponentsColumn = getStartOfAnotherColumn(cellId);
-        const { getByTestId, queryByText } = render(<TicTacToe />);
+        const { getByTestId, queryByText } = render(
+          <GameProvider>
+            <TicTacToe />
+          </GameProvider>
+        );
 
         if (winnerSymbol === 'O') {
-          const cellNotRelatedToVictory = getStartOfAnotherColumn(opponentsColumn);
+          const cellNotRelatedToVictory =
+            getStartOfAnotherColumn(opponentsColumn);
           fireEvent.click(getByTestId(`cell_${cellNotRelatedToVictory}`));
         }
 
@@ -163,7 +201,11 @@ winnerSymbols.forEach((winnerSymbol) => {
     });
 
     test('same symbols on left to right diagonal archive victory', () => {
-      const { getByTestId, queryByText } = render(<TicTacToe />);
+      const { getByTestId, queryByText } = render(
+        <GameProvider>
+          <TicTacToe />
+        </GameProvider>
+      );
 
       if (winnerSymbol === 'O') fireEvent.click(getByTestId('cell_5'));
       fireEvent.click(getByTestId('cell_0'));
@@ -176,7 +218,11 @@ winnerSymbols.forEach((winnerSymbol) => {
     });
 
     test('same symbols on right to left diagonal archive victory', () => {
-      const { getByTestId, queryByText } = render(<TicTacToe />);
+      const { getByTestId, queryByText } = render(
+        <GameProvider>
+          <TicTacToe />
+        </GameProvider>
+      );
 
       if (winnerSymbol === 'O') fireEvent.click(getByTestId('cell_8'));
       fireEvent.click(getByTestId('cell_2'));
@@ -190,7 +236,11 @@ winnerSymbols.forEach((winnerSymbol) => {
   });
   describe('bonus case', () => {
     test('test draw game', () => {
-      const { getByTestId, queryByText } = render(<TicTacToe />);
+      const { getByTestId, queryByText } = render(
+        <GameProvider>
+          <TicTacToe />
+        </GameProvider>
+      );
       fireEvent.click(getByTestId('cell_0'));
       fireEvent.click(getByTestId('cell_1'));
       fireEvent.click(getByTestId('cell_2'));
@@ -204,7 +254,11 @@ winnerSymbols.forEach((winnerSymbol) => {
       expect(queryByText('Empate')).not.toBeNull();
     });
     test('draw game restart test', () => {
-      const { getByTestId, queryByText, queryByAltText } = render(<TicTacToe />);
+      const { getByTestId, queryByText, queryByAltText } = render(
+        <GameProvider>
+          <TicTacToe />
+        </GameProvider>
+      );
       fireEvent.click(getByTestId('cell_0'));
       fireEvent.click(getByTestId('cell_1'));
       fireEvent.click(getByTestId('cell_2'));
@@ -223,7 +277,11 @@ winnerSymbols.forEach((winnerSymbol) => {
       expect(queryByAltText('O')).toBeNull();
     });
     test('mid-game restart test', () => {
-      const { getByTestId, queryByAltText } = render(<TicTacToe />);
+      const { getByTestId, queryByAltText } = render(
+        <GameProvider>
+          <TicTacToe />
+        </GameProvider>
+      );
       fireEvent.click(getByTestId('cell_0'));
       fireEvent.click(getByTestId('cell_1'));
       fireEvent.click(getByTestId('cell_2'));
@@ -234,7 +292,11 @@ winnerSymbols.forEach((winnerSymbol) => {
       expect(queryByAltText('O')).toBeNull();
     });
     test('win-game X restart test', () => {
-      const { getByTestId, queryByAltText, queryByText } = render(<TicTacToe />);
+      const { getByTestId, queryByAltText, queryByText } = render(
+        <GameProvider>
+          <TicTacToe />
+        </GameProvider>
+      );
       fireEvent.click(getByTestId('cell_0'));
       fireEvent.click(getByTestId('cell_3'));
       fireEvent.click(getByTestId('cell_1'));
@@ -246,7 +308,11 @@ winnerSymbols.forEach((winnerSymbol) => {
       expect(queryByAltText('O')).toBeNull();
     });
     test('win-game O restart test', () => {
-      const { getByTestId, queryByAltText, queryByText } = render(<TicTacToe />);
+      const { getByTestId, queryByAltText, queryByText } = render(
+        <GameProvider>
+          <TicTacToe />
+        </GameProvider>
+      );
       fireEvent.click(getByTestId('cell_3'));
       fireEvent.click(getByTestId('cell_0'));
       fireEvent.click(getByTestId('cell_4'));

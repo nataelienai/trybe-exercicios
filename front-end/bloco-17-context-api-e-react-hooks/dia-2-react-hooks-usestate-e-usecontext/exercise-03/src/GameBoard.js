@@ -1,26 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import GameCell from './GameCell';
+import { GameContext } from './contexts/GameContext';
 import './GameBoard.css';
 
-function GameBoard({ gameState, updateGame }) {
+function GameBoard() {
+  const { gameBoard } = useContext(GameContext);
   return (
     <div className="game-board">
-      {gameState.map((playerId, i) => (
-        <GameCell
-          id={i}
-          key={i}
-          onClick={() => updateGame(i)}
-          content={playerId}
-        />
+      {gameBoard.map((playerId, i) => (
+        <GameCell id={i} key={i} />
       ))}
     </div>
   );
 }
-
-GameBoard.propTypes = {
-  gameState: PropTypes.arrayOf(PropTypes.number).isRequired,
-  updateGame: PropTypes.func.isRequired,
-};
 
 export default GameBoard;

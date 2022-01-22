@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { GameContext } from './contexts/GameContext';
 import './GameCell.css';
 import xImage from './x.png';
 import oImage from './o.svg';
 
-function GameCell({ content, onClick, id }) {
+function GameCell({ id }) {
+  const { gameBoard, updateGameBoard } = useContext(GameContext);
+  const content = gameBoard[id];
+
   if (content === 1) {
     return (
       <div
         data-testid={`cell_${id}`}
         className="game-cell"
-        onClick={onClick}
+        onClick={() => updateGameBoard(id)}
         role="button"
         tabIndex="0"
         aria-label="Cell"
-        onKeyPress={onClick}
+        onKeyPress={() => updateGameBoard(id)}
       >
         <img data-testid={`cell_${id}_image`} alt="X" src={xImage} />
       </div>
@@ -25,11 +29,11 @@ function GameCell({ content, onClick, id }) {
       <div
         data-testid={`cell_${id}`}
         className="game-cell"
-        onClick={onClick}
+        onClick={() => updateGameBoard(id)}
         role="button"
         tabIndex="0"
         aria-label="Cell"
-        onKeyPress={onClick}
+        onKeyPress={() => updateGameBoard(id)}
       >
         <img data-testid={`cell_${id}_image`} alt="O" src={oImage} />
       </div>
@@ -40,22 +44,16 @@ function GameCell({ content, onClick, id }) {
       role="button"
       tabIndex="0"
       aria-label="Cell"
-      onKeyPress={onClick}
+      onKeyPress={() => updateGameBoard(id)}
       data-testid={`cell_${id}`}
       className="game-cell"
-      onClick={onClick}
+      onClick={() => updateGameBoard(id)}
     />
   );
 }
 
 GameCell.propTypes = {
-  content: PropTypes.oneOf([0, 1, 2]),
-  onClick: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
-};
-
-GameCell.defaultProps = {
-  content: 0,
 };
 
 export default GameCell;
