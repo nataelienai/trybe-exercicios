@@ -11,6 +11,8 @@ services:
       - database__connection__host=database
       - database__connection__user=root
       - database__connection__password=1234
+    networks:
+      - my-network
     depends_on:
       - database
   database:
@@ -18,4 +20,13 @@ services:
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=1234
+    volumes:
+      - database-data:/var/lib/mysql
+    networks:
+      - my-network
     
+volumes:
+  database-data:
+
+networks:
+  my-network:
