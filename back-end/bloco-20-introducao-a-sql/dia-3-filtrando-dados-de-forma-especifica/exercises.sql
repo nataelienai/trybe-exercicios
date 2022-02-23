@@ -16,12 +16,19 @@ em que o código do fornecedor tenha a letra N .
 SELECT peca, Preco, Fornecedor FROM Fornecimentos WHERE Fornecedor LIKE '%N%';
 
 /*
-4. Escreva uma query para exibir todas as informações dos fornecedores que são empresas limitadas (LTDA).
-Ordene os resultados em ordem alfabética decrescente. 
+4. Escreva uma query para exibir todas as informações dos fornecedores que
+são empresas limitadas (LTDA). Ordene os resultados em ordem alfabética decrescente. 
 */
 SELECT * FROM Fornecedores WHERE name LIKE '%LTDA%' ORDER BY name DESC;
 
 /*
-5. Escreva uma query para exibir o número de empresas (fornecedores) que contém a letra F no código. 
+5. Escreva uma query para exibir o número de empresas (fornecedores) que
+contém a letra F no código. 
 */
 SELECT COUNT(*) FROM Fornecedores WHERE code LIKE '%F%';
+
+/*
+6. Escreva uma query para exibir os fornecimentos onde as peças custam mais de R$15,00 e
+menos de $40,00. Ordene os resultados por ordem crescente.
+*/
+SELECT * FROM Fornecimentos WHERE Preco > 15 AND Preco < 40 ORDER BY Preco;
