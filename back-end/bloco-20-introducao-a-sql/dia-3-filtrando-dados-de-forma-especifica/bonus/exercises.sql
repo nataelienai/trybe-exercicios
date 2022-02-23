@@ -35,3 +35,9 @@ SELECT * FROM Projects WHERE Hours > 500;
 cujas horas sejam maiores que 250 e menores 800. 
 */
 SELECT * FROM Projects WHERE Hours BETWEEN 250 AND 800;
+
+/*
+7. Escreva uma query para exibir o nome e o código de todos os projetos cujo
+nome NÃO inicie com a letra 'A'. 
+*/
+SELECT Name, Code FROM Projects WHERE Name NOT LIKE 'A%';
