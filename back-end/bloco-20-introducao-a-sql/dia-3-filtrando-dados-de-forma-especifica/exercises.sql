@@ -20,3 +20,8 @@ SELECT peca, Preco, Fornecedor FROM Fornecimentos WHERE Fornecedor LIKE '%N%';
 Ordene os resultados em ordem alfabética decrescente. 
 */
 SELECT * FROM Fornecedores WHERE name LIKE '%LTDA%' ORDER BY name DESC;
+
+/*
+5. Escreva uma query para exibir o número de empresas (fornecedores) que contém a letra F no código. 
+*/
+SELECT COUNT(*) FROM Fornecedores WHERE code LIKE '%F%';
