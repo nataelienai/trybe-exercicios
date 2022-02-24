@@ -1,4 +1,5 @@
 USE Pixar;
+SET SQL_SAFE_UPDATES = 0;
 
 /*
 1. Insira as produções da Pixar abaixo na tabela Movies:
@@ -31,3 +32,12 @@ dirigido por Andrew Staton. Corrija esse dado utilizando o UPDATE.
 UPDATE Movies
 SET director = 'Andrew Staton'
 WHERE title = 'Procurando Nemo';
+
+/*
+4. O título do filme "Ratatouille" esta escrito de forma incorreta na
+tabela Movies, além disso, o filme foi lançado em 2007 e não em 2010.
+Corrija esses dados utilizando o UPDATE.
+*/
+UPDATE Movies
+SET title = 'Ratatouille', year = 2007
+WHERE title = 'ratatui';
