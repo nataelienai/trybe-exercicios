@@ -23,3 +23,11 @@ Adicione as informações à tabela BoxOffice.
 INSERT INTO BoxOffice (movie_id, rating, domestic_sales, international_sales)
 VALUES
 	(9, 6.8, 450000000, 370000000);
+
+/*
+3. O diretor do filme "Procurando Nemo" está incorreto, na verdade ele foi
+dirigido por Andrew Staton. Corrija esse dado utilizando o UPDATE.
+*/
+UPDATE Movies
+SET director = 'Andrew Staton'
+WHERE title = 'Procurando Nemo';
