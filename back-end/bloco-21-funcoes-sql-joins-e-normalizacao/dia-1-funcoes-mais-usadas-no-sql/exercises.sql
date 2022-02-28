@@ -29,3 +29,9 @@ Todos os valores devem ser formatados para ter apenas duas casas
 decimais.
 */
 SELECT MAX(salary), MIN(salary), SUM(salary), AVG(salary) FROM employees;
+
+/*
+6. Escreva uma query que exiba a quantidade de pessoas que trabalham
+como pessoas programadoras ( IT_PROG ).
+*/
+SELECT COUNT(*) FROM employees WHERE job_id = 'IT_PROG';
