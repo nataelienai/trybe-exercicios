@@ -87,3 +87,10 @@ WHERE LEFT(phone_number, 3) = '515';
 o primeiro nome tenha oito ou mais caracteres.
 */
 SELECT * FROM employees WHERE CHAR_LENGTH(first_name) >= 8;
+
+/*
+13. Escreva uma query que exiba as seguintes informações de cada
+funcionário: id , primeiro nome e ano no qual foi contratado (exiba
+somente o ano).
+*/
+SELECT employee_id, first_name, YEAR(hire_date) FROM employees;
