@@ -114,3 +114,11 @@ SELECT employee_id, first_name, MONTH(hire_date) FROM employees;
 maiúscula.
 */
 SELECT UCASE(first_name) FROM employees;
+
+/*
+17: Escreva uma query que exiba o sobrenome e a data de contratação de
+todos os funcionário contratados em julho de 1987.
+*/
+SELECT last_name, hire_date
+FROM employees
+WHERE DATE(hire_date) LIKE '1987-07-%';
