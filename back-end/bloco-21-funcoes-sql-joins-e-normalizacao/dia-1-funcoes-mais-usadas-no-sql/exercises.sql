@@ -57,3 +57,19 @@ SELECT AVG(salary) AS avg_salary
 FROM employees
 WHERE job_id <> 'IT_PROG'
 ORDER BY avg_salary DESC;
+
+/*
+10. Escreva um query que exiba média salarial e o número de funcionários
+de todos os departamentos com mais de dez funcionários. Dica: agrupe pelo
+department_id .
+*/
+SELECT
+	department_id,
+    AVG(salary) AS avg_salary,
+    COUNT(*) AS amount_of_employees
+FROM
+	employees
+GROUP BY
+	department_id
+HAVING
+	amount_of_employees > 10;
