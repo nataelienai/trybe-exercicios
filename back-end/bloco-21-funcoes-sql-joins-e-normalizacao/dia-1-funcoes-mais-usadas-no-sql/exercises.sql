@@ -41,3 +41,10 @@ SELECT COUNT(*) FROM employees WHERE job_id = 'IT_PROG';
 para efetuar o pagamento de cada profissão ( JOB_ID ).
 */
 SELECT job_id, SUM(salary) FROM employees GROUP BY job_id;
+
+/*
+8. Utilizando a query anterior, faça as alterações para que seja
+exibido somente a quantidade de dinheiro necessária para cobrir
+a folha de pagamento das pessoas programadoras ( IT_PROG ).
+*/
+SELECT job_id, SUM(salary) FROM employees WHERE job_id = 'IT_PROG';
