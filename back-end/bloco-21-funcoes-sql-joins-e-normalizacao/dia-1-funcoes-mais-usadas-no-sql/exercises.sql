@@ -81,3 +81,9 @@ todos os telefones iniciados por 515 agora devem iniciar com 777.
 UPDATE employees
 SET phone_number = REPLACE(phone_number, '515', '777')
 WHERE LEFT(phone_number, 3) = '515';
+
+/*
+12. Escreva uma query que só exiba as informações dos funcionários cujo
+o primeiro nome tenha oito ou mais caracteres.
+*/
+SELECT * FROM employees WHERE CHAR_LENGTH(first_name) >= 8;
