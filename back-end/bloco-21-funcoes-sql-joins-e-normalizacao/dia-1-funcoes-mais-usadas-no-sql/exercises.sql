@@ -108,3 +108,9 @@ funcionário: id , primeiro nome e mês no qual foi contratado (exiba
 somente o mês).
 */
 SELECT employee_id, first_name, MONTH(hire_date) FROM employees;
+
+/*
+16. Escreva uma query que exiba os nomes dos funcionários em letra
+maiúscula.
+*/
+SELECT UCASE(first_name) FROM employees;
