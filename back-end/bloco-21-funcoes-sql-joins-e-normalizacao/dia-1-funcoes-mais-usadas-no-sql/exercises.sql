@@ -73,3 +73,11 @@ GROUP BY
 	department_id
 HAVING
 	amount_of_employees > 10;
+
+/*
+11. Escreva uma query que atualize a coluna PHONE_NUMBER, de modo que
+todos os telefones iniciados por 515 agora devem iniciar com 777.
+*/
+UPDATE employees
+SET phone_number = REPLACE(phone_number, '515', '777')
+WHERE LEFT(phone_number, 3) = '515';
