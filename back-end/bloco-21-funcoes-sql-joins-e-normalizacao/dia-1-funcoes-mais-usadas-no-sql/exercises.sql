@@ -48,3 +48,12 @@ exibido somente a quantidade de dinheiro necessária para cobrir
 a folha de pagamento das pessoas programadoras ( IT_PROG ).
 */
 SELECT job_id, SUM(salary) FROM employees WHERE job_id = 'IT_PROG';
+
+/*
+9. Escreva uma query que exiba em ordem decrescente a média salarial de
+todos os cargos, exceto das pessoas programadoras ( IT_PROG ).
+*/
+SELECT AVG(salary) AS avg_salary
+FROM employees
+WHERE job_id <> 'IT_PROG'
+ORDER BY avg_salary DESC;
