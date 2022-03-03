@@ -25,3 +25,14 @@ avaliação (rating) em ordem decrescente.
 SELECT id, title, rating
 FROM Movies
 INNER JOIN BoxOffice ON BoxOffice.movie_id = Movies.id;
+
+/*
+Exercício 4: Utilizando o LEFT JOIN, faça uma busca que retorne todos os
+dados dos cinemas, mesmo os que não possuem filmes em cartaz e,
+adicionalmente, os dados dos filmes que estão em cartaz nestes cinemas.
+Retorne os nomes dos cinemas em ordem alfabética.
+*/
+SELECT *
+FROM Theater
+LEFT JOIN Movies ON Movies.theater_id = Theater.id
+ORDER BY Theater.name;
