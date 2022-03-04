@@ -46,3 +46,27 @@ END $$
 DELIMITER ;
 
 SELECT get_movie_title_by_inventory_id(10);
+
+/*
+3. Crie uma function que receba uma determinada categoria de filme em
+formato de texto (ex: 'Action' , 'Horror' ) e retorna a quantidade total
+de filmes registrados nessa categoria. 
+*/
+DELIMITER $$
+
+CREATE FUNCTION get_number_of_movies_from_category(category_name VARCHAR(25))
+RETURNS INT READS SQL DATA
+BEGIN
+	DECLARE number_of_movies INT;
+    SELECT COUNT(*)
+	FROM film
+	INNER JOIN film_category ON film.film_id = film_category.film_id
+	INNER JOIN category ON category.category_id = film_category.category_id
+	WHERE category.name = category_name
+	INTO number_of_movies;
+    RETURN number_of_movies;
+END $$
+
+DELIMITER ;
+
+SELECT get_number_of_movies_from_category('Action');
