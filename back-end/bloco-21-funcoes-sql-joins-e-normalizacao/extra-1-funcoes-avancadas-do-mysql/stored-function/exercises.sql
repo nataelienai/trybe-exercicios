@@ -21,3 +21,28 @@ END $$
 DELIMITER ;
 
 SELECT get_amount_of_payments_by_customer_id(3);
+
+/*
+2. Crie uma function que, dado o parâmetro de entrada inventory_id,
+retorna o nome do filme vinculado ao registro de inventário com esse id.
+*/
+DELIMITER $$
+
+CREATE FUNCTION get_movie_title_by_inventory_id(inventory_id INT)
+RETURNS VARCHAR(128) READS SQL DATA
+BEGIN
+	DECLARE movie_title VARCHAR(128);
+    SELECT title
+    FROM film
+    WHERE film_id IN (
+		SELECT film_id
+        FROM inventory
+        WHERE inventory.inventory_id = inventory_id
+    )
+    INTO movie_title;
+    RETURN movie_title;
+END $$
+
+DELIMITER ;
+
+SELECT get_movie_title_by_inventory_id(10);
