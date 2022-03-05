@@ -55,3 +55,23 @@ CREATE VIEW movies_languages AS
     INNER JOIN language l ON f.language_id = l.language_id;
 
 SELECT * FROM movies_languages;
+
+/*
+5. Verifique o impacto de um FULLTEXT INDEX na tabela category (banco de dados
+sakila), adicionando-o na coluna name. Após ter adicionado o índice, mensure o
+custo da query utilizando o execution plan. Após ter criado e mensurado o custo
+da query, exclua o índice e mensure novamente esse custo.
+*/
+CREATE FULLTEXT INDEX category_name_index ON category(name);
+
+# Query cost: 0.35
+SELECT *
+FROM sakila.category
+WHERE MATCH(name) AGAINST('action');
+
+DROP INDEX category_name_index ON category;
+
+# Query cost: 1.85
+SELECT *
+FROM sakila.category
+WHERE name LIKE '%action%';
