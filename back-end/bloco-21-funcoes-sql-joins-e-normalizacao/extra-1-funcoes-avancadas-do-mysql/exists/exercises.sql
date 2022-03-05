@@ -35,3 +35,15 @@ WHERE NOT EXISTS (
     FROM CarSales
     WHERE CarSales.customerId = Customers.customerId
 );
+
+/*
+4. Usando o comando EXISTS em conjunto com JOIN e as tabelas cars, customers
+e carsales, exiba o nome do cliente e o modelo do carro de todos os clientes
+que fizeram compras de carros.
+*/
+SELECT Customers.name, Cars.name
+FROM Customers
+INNER JOIN CarSales ON CarSales.customerId = Customers.customerId
+INNER JOIN Cars ON Cars.Id = CarSales.carId;
+
+# Utilizar o INNER JOIN, nesse caso, dispensa o uso de EXISTS.
