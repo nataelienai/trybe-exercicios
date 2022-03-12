@@ -1,7 +1,15 @@
 const readlineSync = require('readline-sync');
 
-const distanceInMeters = readlineSync.questionInt('Distance (in meters): ');
-const elapsedTimeInSeconds = readlineSync.questionInt('Elapsed time (in seconds): ');
+function calculateAverageSpeed(distance, elapsedTime) {
+  return distance / elapsedTime;
+}
 
-const averageSpeed = distanceInMeters / elapsedTimeInSeconds;
-console.log(`The average speed is ${averageSpeed.toFixed(2)} m/s`);
+function main() {
+  const distanceInMeters = readlineSync.questionInt('Distance (in meters): ');
+  const elapsedTimeInSeconds = readlineSync.questionInt('Elapsed time (in seconds): ');
+
+  const averageSpeed = calculateAverageSpeed(distanceInMeters, elapsedTimeInSeconds);
+  console.log(`The average speed is ${averageSpeed.toFixed(2)} m/s`);
+}
+
+main();
