@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bmi": "node bmi.js",
-    "speed": "node speed.js"
+    "speed": "node speed.js",
+    "guessing": "node guessing.js"
   },
   "author": "Natã Elienai",
   "license": "ISC",
