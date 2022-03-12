@@ -1,5 +1,5 @@
-
-const weight = 83;
-const height = 1.80;
+const readlineSync = require('readline-sync');
+const weight = readlineSync.questionFloat('How much do you weigh? (in kg) ');
+const height = readlineSync.questionFloat('How tall are you? (in meters) ');
 const bmi = weight / (height * height);
-console.log(`The BMI calculated with a weight of ${weight} kg and a height of ${height} meters is ${bmi}`);
+console.log(`Your BMI is ${bmi.toFixed(2)}`);
