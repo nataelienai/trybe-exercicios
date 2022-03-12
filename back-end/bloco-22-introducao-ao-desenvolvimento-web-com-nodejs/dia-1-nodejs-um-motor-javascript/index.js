@@ -5,6 +5,7 @@ function main() {
     'Body Mass Index (BMI) Calculator': './bmi',
     'Average Speed Calculator': './speed',
     'Guessing game': './guessing',
+    'Factorial Calculator': './factorial',
   };
   const scriptNames = Object.keys(scripts);
   const option = readlineSync.keyInSelect(scriptNames, 'Which script should be run?');
