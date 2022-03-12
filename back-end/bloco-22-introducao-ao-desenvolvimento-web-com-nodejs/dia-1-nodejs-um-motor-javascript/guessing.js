@@ -5,8 +5,8 @@ function getRandomInteger(upperLimit) {
 }
 
 function main() {
-  let shouldContinue = 'y';
-  while (shouldContinue.startsWith('y')) {
+  let shouldContinue = true;
+  while (shouldContinue) {
     const guessedNumber = readlineSync.questionInt('Guess a number from 0 to 10: ');
     const drawnNumber = getRandomInteger(10);
 
@@ -15,7 +15,7 @@ function main() {
     } else {
       console.log(`Oops, not this time. The correct number was ${drawnNumber}`);
     }
-    shouldContinue = readlineSync.question('Play again? (y/n): ').toLowerCase();
+    shouldContinue = readlineSync.keyInYNStrict('Play again?');
   }
 }
 
