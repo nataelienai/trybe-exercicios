@@ -5,13 +5,17 @@ function getRandomInteger(upperLimit) {
 }
 
 function main() {
-  const guessedNumber = readlineSync.questionInt('Guess a number from 0 to 10: ');
-  const drawnNumber = getRandomInteger(10);
+  let shouldContinue = 'y';
+  while (shouldContinue.startsWith('y')) {
+    const guessedNumber = readlineSync.questionInt('Guess a number from 0 to 10: ');
+    const drawnNumber = getRandomInteger(10);
 
-  if (drawnNumber === guessedNumber) {
-    console.log('Congratulations, you got it right!');
-  } else {
-    console.log(`Oops, not this time. The correct number was ${drawnNumber}`);
+    if (drawnNumber === guessedNumber) {
+      console.log('Congratulations, you got it right!');
+    } else {
+      console.log(`Oops, not this time. The correct number was ${drawnNumber}`);
+    }
+    shouldContinue = readlineSync.question('Play again? (y/n): ').toLowerCase();
   }
 }
 
