@@ -10,7 +10,7 @@ addAndMultiply(
   getRandomIntegerInRange(1, 100)
 )
   .then((result) => {
-    console.log(`Result: ${result}`)
+    console.log(`Result: ${result}`);
   })
   .catch((err) => {
     console.error(err);
