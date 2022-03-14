@@ -11,3 +11,5 @@ function addAndMultiply(a, b, c) {
   });
   return promise;
 }
+
+module.exports = { addAndMultiply };
