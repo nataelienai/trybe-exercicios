@@ -6,6 +6,7 @@ function main() {
     'Average Speed Calculator': './speed',
     'Guessing game': './guessing',
     'Factorial Calculator': './factorial',
+    'Fibonacci sequence': './fibonacci',
   };
   const scriptNames = Object.keys(scripts);
   const option = readlineSync.keyInSelect(scriptNames, 'Which script should be run?');
