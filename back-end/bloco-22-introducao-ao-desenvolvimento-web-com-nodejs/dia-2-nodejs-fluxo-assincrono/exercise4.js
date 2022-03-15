@@ -22,13 +22,11 @@ async function printSimpsons() {
 async function getSimpsonById(id) {
   const simpsons = await getSimpsonsFromFile('simpsons.json');
 
-  return new Promise((resolve, reject) => {
-    const character = simpsons.find((simpson) => Number(simpson.id) === id);
-    if (character) {
-      resolve(character);
-    }
-    reject('id não encontrado');
-  });
+  const character = simpsons.find((simpson) => Number(simpson.id) === id);
+  if (!character) {
+    throw new Error('id não encontrado');
+  }
+  return character;
 }
 
 async function removeSimpsonsWithId6And10() {
