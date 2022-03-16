@@ -11,4 +11,12 @@ describe('getNumberPolarity', () => {
       expect(getNumberPolarity).to.throw();
     });
   });
+
+  describe('When given a number', () => {
+    it('returns a string', () => {
+      const result = getNumberPolarity(5);
+
+      expect(result).to.be.a('string');
+    });
+  });
 });
