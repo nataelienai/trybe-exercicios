@@ -15,10 +15,16 @@ app.post('/hello', (req, res) => {
 
 app.post('/greetings', (req, res) => {
   const { name, age } = req.body;
+
   if (age > 17) {
     return res.status(200).json({ message: `Hello, ${name}!` });
   }
   res.status(401).json({ message: 'Unauthorized' });
+});
+
+app.put('/users/:name/:age', (req, res) => {
+  const { name, age } = req.params;
+  res.status(200).json({ message: `Your name is ${name} and you're ${age} years old`});
 });
 
 app.listen(PORT, () => console.log(`Express is listening on port ${PORT}`));
