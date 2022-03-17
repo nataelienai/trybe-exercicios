@@ -36,6 +36,10 @@ async function addSimpson(simpson) {
 }
 
 app.get('/simpsons', async (req, res) => {
+  const token = req.headers.authorization;
+  if (token.length !== 16) {
+    return res.status(401).json({ message: 'Token inválido!' });
+  }
   try {
     const simpsons = await getSimpsons();
     res.status(200).json(simpsons);
@@ -46,6 +50,10 @@ app.get('/simpsons', async (req, res) => {
 
 app.get('/simpsons/:id', async (req, res) => {
   const { id } = req.params;
+  const token = req.headers.authorization;
+  if (token.length !== 16) {
+    return res.status(401).json({ message: 'Token inválido!' });
+  }
   try {
     const simpson = await getSimpsonById(id);
 
@@ -60,7 +68,10 @@ app.get('/simpsons/:id', async (req, res) => {
 
 app.post('/simpsons', async (req, res) => {
   const { id, name } = req.body;
-
+  const token = req.headers.authorization;
+  if (token.length !== 16) {
+    return res.status(401).json({ message: 'Token inválido!' });
+  }
   try {
     const isIdTaken = await isSimpsonIdTaken(id);
     if (isIdTaken) {
