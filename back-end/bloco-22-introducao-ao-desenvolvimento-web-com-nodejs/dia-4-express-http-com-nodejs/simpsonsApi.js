@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs').promises;
+const generateToken = require('./generateToken');
 
 const PORT = 3001;
 const app = express();
@@ -82,6 +83,14 @@ app.post('/simpsons', async (req, res) => {
   } catch {
     res.status(500).end();
   }
+});
+
+app.post('/signup', (req, res) => {
+  const { email, password, firstName, phone } = req.body;
+  if (!email || !password || !firstName || !phone) {
+    return res.status(401).json({ message: 'missing fields' });
+  }
+  res.status(200).json({ token: generateToken() });
 });
 
 app.listen(PORT, () => console.log(`Express is listening on port ${PORT}`));
