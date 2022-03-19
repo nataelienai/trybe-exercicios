@@ -28,4 +28,9 @@ router.post('/', teamValidationMiddleware, async (req, res) => {
   res.status(200).json(team);
 });
 
+router.get('/', async (req, res) => {
+  const teams = await readTeams();
+  res.status(200).json(teams);
+});
+
 module.exports = router;
