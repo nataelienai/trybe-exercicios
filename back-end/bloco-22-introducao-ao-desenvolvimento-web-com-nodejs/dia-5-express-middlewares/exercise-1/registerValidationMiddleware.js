@@ -1,6 +1,6 @@
 const { isUsernameValid, isPasswordValid, isEmailValid } = require('./util');
 
-function inputValidationMiddleware(req, res, next) {
+function registerValidationMiddleware(req, res, next) {
   const { username, email, password } = req.body;
   if (!isUsernameValid(username) || !isPasswordValid(password) || !isEmailValid(email)) {
     return res.status(400).json({ message: 'invalid data' });
@@ -8,4 +8,4 @@ function inputValidationMiddleware(req, res, next) {
   next();
 }
 
-module.exports = inputValidationMiddleware;
+module.exports = registerValidationMiddleware;
