@@ -4,7 +4,7 @@ function hasOnlyLettersAndNumbers(string) {
 }
 
 function isTokenValid(token) {
-  return token && token.length === 12 && hasOnlyLettersAndNumbers(token);
+  return Boolean(token && token.length === 12 && hasOnlyLettersAndNumbers(token));
 }
 
 function tokenValidationMiddleware(req, res, next) {
