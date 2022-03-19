@@ -1,0 +1,14 @@
+{
+  "teams": [
+    {
+      "name": "Sport Club Corinthians Paulista",
+      "initials": "COR",
+      "country": "Brazil"
+    },
+    {
+      "name": "Liverpool FC",
+      "initials": "LFC",
+      "country": "England"
+    }
+  ]
+}
