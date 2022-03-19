@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 function isUsernameValid(username) {
   return Boolean(username && username.length > 3);
 }
@@ -12,8 +14,13 @@ function isEmailValid(email) {
   return emailRegex.test(email);
 }
 
+function generateToken() {
+  return crypto.randomBytes(6).toString('hex');
+}
+
 module.exports = {
   isUsernameValid,
   isPasswordValid,
-  isEmailValid
+  isEmailValid,
+  generateToken
 };
