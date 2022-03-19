@@ -1,4 +1,5 @@
 const express = require('express');
+const { route } = require('express/lib/router');
 
 const router = express.Router();
 
@@ -13,5 +14,9 @@ router.get('/:id', (req, res) => {
   }
   res.status(200).json(post);
 });
+
+router.get('/', (_req, res) => {
+  res.status(200).json({ posts });
+})
 
 module.exports = router;
