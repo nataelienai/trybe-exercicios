@@ -29,7 +29,15 @@ const getAll = async () => {
   return users.map(serialize);
 };
 
+const getById = async (id) => {
+  const [users] = await connection.execute('SELECT * FROM users WHERE id = ?', [id]);
+
+  if (users.length === 0) return null;
+  return users[0];
+};
+
 module.exports = {
   create,
   getAll,
+  getById,
 };
