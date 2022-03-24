@@ -15,6 +15,21 @@ const create = async ({ firstName, lastName, email, password }) => {
   };
 };
 
+const serialize = (user) => ({
+  id: user.id,
+  firstName: user.first_name,
+  lastName: user.last_name,
+  email: user.email,
+  password: user.password,
+});
+
+const getAll = async () => {
+  const [users] = await connection.execute('SELECT * FROM users');
+
+  return users.map(serialize);
+};
+
 module.exports = {
   create,
+  getAll,
 };

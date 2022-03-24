@@ -48,4 +48,14 @@ app.post('/user', async (req, res) => {
   }
 });
 
+app.get('/user', async (req, res) => {
+  try {
+    const users = await User.getAll();
+    return res.status(200).json(users);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).end();
+  }
+});
+
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
