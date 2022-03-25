@@ -36,8 +36,22 @@ const getById = async (id) => {
   return users[0];
 };
 
+const update = async ({ id, firstName, lastName, email, password }) => {
+  await connection.execute(
+    'UPDATE users SET first_name = ?, last_name = ?, email = ?, password = ? WHERE id = ?',
+    [firstName, lastName, email, password, id],
+  );
+  return {
+    id,
+    firstName,
+    lastName,
+    email,
+  };
+};
+
 module.exports = {
   create,
   getAll,
   getById,
+  update,
 };
