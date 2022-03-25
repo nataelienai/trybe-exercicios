@@ -7,39 +7,35 @@ const PORT = 3000;
 
 app.use(express.json());
 
-const userInputValidation = (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body;
-
+const validateUserInput = ({ firstName, lastName, email, password }) => {
   if (!firstName) {
-    return res.status(400).json({
-      error: true,
-      message: "O campo 'firstName' é obrigatório"
-    });
+    return { isValid: false, message: "O campo 'firstName' é obrigatório" };
   }
   if (!lastName) {
-    return res.status(400).json({
-      error: true,
-      message: "O campo 'lastName' é obrigatório"
-    });
+    return { isValid: false, message: "O campo 'lastName' é obrigatório" };
   }
   if (!email) {
-    return res.status(400).json({
-      error: true,
-      message: "O campo 'email' é obrigatório"
-    });
+    return { isValid: true, message: "O campo 'email' é obrigatório" };
   }
   if (!password) {
-    return res.status(400).json({
-      error: true,
-      message: "O campo 'password' é obrigatório"
-    });
+    return { isValid: false, message: "O campo 'password' é obrigatório" };
   }
   if (password.length < 6) {
-    return res.status(400).json({
-      error: true,
-      message: "O campo 'password' deve ter pelo menos 6 caracteres"
-    });
+    return { isValid: false, message: "O campo 'password' deve ter pelo menos 6 caracteres" };
   }
+  return { isValid: true, message: '' };
+};
+
+const userInputValidation = (req, res, next) => {
+  const { firstName, lastName, email, password } = req.body;
+  const validation = validateUserInput({ firstName, lastName, email, password });
+
+  if (!validation.isValid) {
+    const error = new Error(validation.message);
+    error.status = 400;
+    next(error);
+  }
+
   next();
 };
 
@@ -48,7 +44,9 @@ const userExistenceValidation = rescue(async (req, res, next) => {
   const user = await User.getById(id);
 
   if (!user) {
-    return res.status(404).json({ error: true, message: 'Usuário não encontrado' });
+    const error = new Error('Usuário não encontrado');
+    error.status = 404;
+    next(error);
   }
   next();
 });
@@ -81,8 +79,11 @@ app.put('/user/:id', userInputValidation, userExistenceValidation, rescue(async 
   res.status(200).json(user);
 }));
 
-app.use((_err, _req, res, _next) => {
-  res.status(500).json({ message: 'Erro interno do servidor' });
+app.use((err, _req, res, _next) => {
+  if (err.status) {
+    return res.status(err.status).json({ error: true, message: err.message })
+  }
+  res.status(500).json({ error: true, message: 'Erro interno do servidor' });
 });
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
