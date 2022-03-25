@@ -11,7 +11,6 @@ const create = async ({ firstName, lastName, email, password }) => {
     firstName,
     lastName,
     email,
-    password,
   };
 };
 
