@@ -1,4 +1,5 @@
 const express = require('express');
+const rescue = require('express-rescue');
 const User = require('./models/User');
 
 const app = express();
@@ -42,7 +43,7 @@ const userInputValidation = (req, res, next) => {
   next();
 };
 
-const userExistenceValidation = async (req, res, next) => {
+const userExistenceValidation = rescue(async (req, res, next) => {
   const { id } = req.params;
   const user = await User.getById(id);
 
@@ -50,53 +51,38 @@ const userExistenceValidation = async (req, res, next) => {
     return res.status(404).json({ error: true, message: 'Usuário não encontrado' });
   }
   next();
-};
-
-app.post('/user', userInputValidation, async (req, res) => {
-  try {
-    const { firstName, lastName, email, password } = req.body;
-    const user = await User.create({ firstName, lastName, email, password });
-
-    res.status(201).json(user);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).end();
-  }
 });
 
-app.get('/user', async (req, res) => {
-  try {
-    const users = await User.getAll();
-    return res.status(200).json(users);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).end();
-  }
-});
+app.post('/user', userInputValidation, rescue(async (req, res) => {
+  const { firstName, lastName, email, password } = req.body;
+  const user = await User.create({ firstName, lastName, email, password });
 
-app.get('/user/:id', userExistenceValidation, async (req, res) => {
-  try {
-    const { id } = req.params;
-    const user = await User.getById(id);
+  res.status(201).json(user);
+}));
 
-    return res.status(200).json(user);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).end();
-  }
-});
+app.get('/user', rescue(async (req, res) => {
+  const users = await User.getAll();
 
-app.put('/user/:id', userInputValidation, userExistenceValidation, async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { firstName, lastName, email, password } = req.body;
-    const user = await User.update({ id, firstName, lastName, email, password });
+  return res.status(200).json(users);
+}));
 
-    res.status(200).json(user);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).end();
-  }
+app.get('/user/:id', userExistenceValidation, rescue(async (req, res) => {
+  const { id } = req.params;
+  const user = await User.getById(id);
+
+  return res.status(200).json(user);
+}));
+
+app.put('/user/:id', userInputValidation, userExistenceValidation, rescue(async (req, res) => {
+  const { id } = req.params;
+  const { firstName, lastName, email, password } = req.body;
+  const user = await User.update({ id, firstName, lastName, email, password });
+
+  res.status(200).json(user);
+}));
+
+app.use((_err, _req, res, _next) => {
+  res.status(500).json({ message: 'Erro interno do servidor' });
 });
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
