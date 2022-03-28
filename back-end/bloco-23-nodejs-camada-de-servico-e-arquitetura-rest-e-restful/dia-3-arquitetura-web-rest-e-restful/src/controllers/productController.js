@@ -32,9 +32,9 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
   const { name, brand } = req.body;
 
-  const products = await ProductModel.update(req.params.id, name, brand);
+  const product = await ProductModel.update(req.params.id, name, brand);
 
-  res.status(200).json(products);
+  res.status(200).json(product);
 });
 
 module.exports = router;
