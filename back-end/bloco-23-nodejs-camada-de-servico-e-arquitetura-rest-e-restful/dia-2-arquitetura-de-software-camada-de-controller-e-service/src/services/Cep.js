@@ -1,4 +1,5 @@
 const Cep = require('../models/Cep');
+const ViaCep = require('../models/ViaCep');
 const Joi = require('joi');
 
 const isValid = (cep) => {
@@ -50,11 +51,15 @@ const getDetails = async (cep) => {
 
   const unformattedCep = removeDashFromCep(cep);
   const cepDetails = await Cep.getDetails(unformattedCep);
+  if (cepDetails) return { data: formatCepInDetails(cepDetails) };
 
-  if (!cepDetails) {
+  const cepDetailsFromViaCep = await ViaCep.lookup(unformattedCep);
+  if (!cepDetailsFromViaCep) {
     return { error: { code: 'notFound', message: 'CEP não encontrado' } };
   }
-  return { data: formatCepInDetails(cepDetails) };
+  
+  const createdCepDetails = await Cep.create(removeDashFromCepInDetails(cepDetailsFromViaCep));
+  return { data: formatCepInDetails(createdCepDetails) };
 };
 
 const create = async (cepDetails) => {
