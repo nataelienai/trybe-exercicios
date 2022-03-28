@@ -49,7 +49,6 @@ const exclude = async (id) => {
     const product = await getById(id);
     if (!product) return {};
     await connection.query('DELETE FROM products WHERE id = ?', [id])
-    return product;
   } catch (err) {
     console.error(err);
     return process.exit(1);

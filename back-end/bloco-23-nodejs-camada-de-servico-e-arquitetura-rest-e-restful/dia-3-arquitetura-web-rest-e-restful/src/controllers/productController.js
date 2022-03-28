@@ -24,9 +24,9 @@ router.post('/', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  const products = await ProductModel.exclude(req.params.id);
+  await ProductModel.exclude(req.params.id);
 
-  res.status(204).json(products);
+  res.status(204).end();
 });
 
 router.put('/:id', async (req, res) => {
