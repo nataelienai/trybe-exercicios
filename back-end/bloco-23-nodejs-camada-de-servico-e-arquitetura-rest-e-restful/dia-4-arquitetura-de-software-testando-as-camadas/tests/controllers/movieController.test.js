@@ -3,134 +3,136 @@ const { expect } = require('chai');
 const MoviesService = require('../../src/services/movieService');
 const MoviesController = require('../../src/controllers/movieController');
 
-describe('Ao chamar o controller de create', () => {
-  describe('quando o payload informado não é válido', () => {
-    const response = {};
-    const request = {};
+describe('Movie Controller', () => {
+  describe('Ao chamar o controller de create', () => {
+    describe('quando o payload informado não é válido', () => {
+      const response = {};
+      const request = {};
 
-    before(() => {
-      request.body = {};
-      response.status = sinon.stub().returns(response);
-      response.send = sinon.stub().returns();
+      before(() => {
+        request.body = {};
+        response.status = sinon.stub().returns(response);
+        response.send = sinon.stub().returns();
 
-      sinon.stub(MoviesService, 'create').resolves(false);
+        sinon.stub(MoviesService, 'create').resolves(false);
+      });
+
+      after(() => {
+        MoviesService.create.restore();
+      });
+
+      it('é chamado o status com o código 400', async () => {
+        await MoviesController.create(request, response);
+
+        expect(response.status.calledWith(400)).to.equal(true);
+      });
+
+      it('é chamado o send com a mensagem "Dados inválidos"', async () => {
+        await MoviesController.create(request, response);
+
+        expect(response.send.calledWith('Dados inválidos')).to.equal(true);
+      });
     });
 
-    after(() => {
-      MoviesService.create.restore();
-    });
+    describe('quando é inserido com sucesso', () => {
+      const response = {};
+      const request = {};
 
-    it('é chamado o status com o código 400', async () => {
-      await MoviesController.create(request, response);
+      before(() => {
+        request.body = {
+          title: 'Example Movie',
+          directedBy: 'Jane Dow',
+          releaseYear: 1999,
+        };
+        response.status = sinon.stub().returns(response);
+        response.send = sinon.stub().returns();
 
-      expect(response.status.calledWith(400)).to.equal(true);
-    });
+        sinon.stub(MoviesService, 'create').resolves(true);
+      });
 
-    it('é chamado o send com a mensagem "Dados inválidos"', async () => {
-      await MoviesController.create(request, response);
+      after(() => {
+        MoviesService.create.restore();
+      });
 
-      expect(response.send.calledWith('Dados inválidos')).to.equal(true);
+      it('é chamado o status com o código 201', async () => {
+        await MoviesController.create(request, response);
+
+        expect(response.status.calledWith(201)).to.equal(true);
+      });
+
+      it('é chamado o send com a mensagem "Filme criado com sucesso!"', async () => {
+        await MoviesController.create(request, response);
+
+        expect(response.send.calledWith('Filme criado com sucesso!')).to.equal(true);
+      });
     });
   });
 
-  describe('quando é inserido com sucesso', () => {
-    const response = {};
-    const request = {};
+  /*
+  Continuando a utilizar o método send na response para manter o padrão que o 
+  código do exercício já possuía.
+  */
 
-    before(() => {
-      request.body = {
-        title: 'Example Movie',
-        directedBy: 'Jane Dow',
-        releaseYear: 1999,
+  describe('Ao consultar um filme', () => {
+    describe('quando não existe no banco de dados', () => {
+      const request = {};
+      const response = {};
+
+      before(() => {
+        request.params = { id: 1 };
+        response.status = sinon.stub().returns(response);
+        response.send = sinon.stub().returns();
+
+        sinon.stub(MoviesService, 'getById').resolves(null);
+      });
+
+      after(() => {
+        MoviesService.getById.restore();
+      });
+
+      it('retorna response com status 404', async () => {
+        await MoviesController.getById(request, response);
+        expect(response.status.calledWith(404)).to.be.true;
+      });
+
+      it('retorna response com mensagem "Filme não encontrado."', async () => {
+        await MoviesController.getById(request, response);
+        expect(response.send.calledWith('Filme não encontrado.')).to.be.true;
+      });
+    });
+
+    describe('quando existe no banco de dados', () => {
+      const movie = {
+        id: 1,
+        title: 'Example',
+        directedBy: 'John Doe',
+        year: 1999,
       };
-      response.status = sinon.stub().returns(response);
-      response.send = sinon.stub().returns();
 
-      sinon.stub(MoviesService, 'create').resolves(true);
-    });
+      const request = {};
+      const response = {};
 
-    after(() => {
-      MoviesService.create.restore();
-    });
+      before(() => {
+        request.params = { id: movie.id };
+        response.status = sinon.stub().returns(response);
+        response.send = sinon.stub().returns();
 
-    it('é chamado o status com o código 201', async () => {
-      await MoviesController.create(request, response);
+        sinon.stub(MoviesService, 'getById').resolves(movie);
+      });
 
-      expect(response.status.calledWith(201)).to.equal(true);
-    });
+      after(() => {
+        MoviesService.getById.restore();
+      });
 
-    it('é chamado o send com a mensagem "Filme criado com sucesso!"', async () => {
-      await MoviesController.create(request, response);
+      it('retorna um objeto', async () => {
+        await MoviesController.getById(request, response);
+        expect(response.status.calledWith(200)).to.be.true;
+      });
 
-      expect(response.send.calledWith('Filme criado com sucesso!')).to.equal(true);
-    });
-  });
-});
-
-/*
-Continuando a utilizar o método send na response para manter o padrão que o 
-código do exercício já possuía.
-*/
-
-describe('Ao consultar um filme', () => {
-  describe('quando não existe no banco de dados', () => {
-    const request = {};
-    const response = {};
-
-    before(() => {
-      request.params = { id: 1 };
-      response.status = sinon.stub().returns(response);
-      response.send = sinon.stub().returns();
-
-      sinon.stub(MoviesService, 'getById').resolves(null);
-    });
-
-    after(() => {
-      MoviesService.getById.restore();
-    });
-
-    it('retorna response com status 404', async () => {
-      await MoviesController.getById(request, response);
-      expect(response.status.calledWith(404)).to.be.true;
-    });
-
-    it('retorna response com mensagem "Filme não encontrado."', async () => {
-      await MoviesController.getById(request, response);
-      expect(response.send.calledWith('Filme não encontrado.')).to.be.true;
-    });
-  });
-
-  describe('quando existe no banco de dados', () => {
-    const movie = {
-      id: 1,
-      title: 'Example',
-      directedBy: 'John Doe',
-      year: 1999,
-    };
-
-    const request = {};
-    const response = {};
-
-    before(() => {
-      request.params = { id: movie.id };
-      response.status = sinon.stub().returns(response);
-      response.send = sinon.stub().returns();
-
-      sinon.stub(MoviesService, 'getById').resolves(movie);
-    });
-
-    after(() => {
-      MoviesService.getById.restore();
-    });
-
-    it('retorna um objeto', async () => {
-      await MoviesController.getById(request, response);
-      expect(response.status.calledWith(200)).to.be.true;
-    });
-
-    it('retorna o objeto correto', async () => {
-      await MoviesController.getById(request, response);
-      expect(response.send.calledWith(movie)).to.be.true;
+      it('retorna o objeto correto', async () => {
+        await MoviesController.getById(request, response);
+        expect(response.send.calledWith(movie)).to.be.true;
+      });
     });
   });
 });
