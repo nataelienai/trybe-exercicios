@@ -9,6 +9,16 @@ const create = async ({ title, directedBy, releaseYear }) => {
   return { id: result.insertId };
 };
 
+const getById = async (id) => {
+  const [movies] = await connection.execute(
+    "SELECT * FROM model_example.movies WHERE id = ?",
+    [id]
+  );
+  if (movies.length === 0) return null;
+  return movies[0];
+};
+
 module.exports = {
   create,
+  getById,
 };
