@@ -45,3 +45,47 @@ describe('Insere um novo filme no BD', () => {
     });
   });
 });
+
+describe('Ao consultar um filme', () => {
+  describe('quando não existe no banco de dados', () => {
+    before(() => {
+      sinon.stub(MoviesModel, 'getById').resolves(null);
+    });
+  
+    after(() => {
+      MoviesModel.getById.restore();
+    });
+
+    it('retorna null', async () => {
+      const response = await MoviesService.getById(1);
+      expect(response).to.be.null;
+    });
+  });
+
+  describe('quando existe no banco de dados', () => {
+    const movie = {
+      id: 1,
+      title: 'Example',
+      directedBy: 'John Doe',
+      year: 1999,
+    };
+
+    before(() => {
+      sinon.stub(MoviesModel, 'getById').resolves(movie);
+    });
+  
+    after(() => {
+      MoviesModel.getById.restore();
+    });
+
+    it('retorna um objeto', async () => {
+      const response = await MoviesService.getById(movie.id);
+      expect(response).to.be.an('object');
+    });
+
+    it('retorna o objeto correto', async () => {
+      const response = await MoviesService.getById(movie.id);
+      expect(response).to.deep.equal(movie);
+    });
+  });
+});
