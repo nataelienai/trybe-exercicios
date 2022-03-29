@@ -5,6 +5,8 @@ const app = express();
 
 app.use(express.json());
 
+app.get('/movies/:id', MovieController.getById);
+
 app.post('/movies', MovieController.create);
 
 const PORT = process.env.PORT || 3000;
