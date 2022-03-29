@@ -8,7 +8,7 @@ describe('Insere um novo filme no BD', () => {
     title: 'Example Movie',
     directedBy: 'Jane Dow',
     releaseYear: 1999,
-  }
+  };
 
   before(() => {
     const execute = [{ insertId: 1 }];
@@ -31,6 +31,52 @@ describe('Insere um novo filme no BD', () => {
       const response = await MoviesModel.create(payloadMovie);
 
       expect(response).to.have.a.property('id');
+    });
+  });
+});
+
+describe('Ao consultar um filme', () => {
+  describe('quando não existe no banco de dados', () => {
+    before(() => {
+      const result = [[]];
+      sinon.stub(connection, 'execute').resolves(result);
+    });
+  
+    after(() => {
+      connection.execute.restore();
+    });
+
+    it('retorna null', async () => {
+      const response = await MoviesModel.getById(1);
+      expect(response).to.be.null;
+    });
+  });
+
+  describe('quando existe no banco de dados', () => {
+    const movie = {
+      id: 1,
+      title: 'Example',
+      directedBy: 'John Doe',
+      year: 1999,
+    };
+
+    before(() => {
+      const result = [[movie]];
+      sinon.stub(connection, 'execute').resolves(result);
+    });
+  
+    after(() => {
+      connection.execute.restore();
+    });
+
+    it('retorna um objeto', async () => {
+      const response = await MoviesModel.getById(movie.id);
+      expect(response).to.be.an('object');
+    });
+
+    it('retorna o objeto correto', async () => {
+      const response = await MoviesModel.getById(movie.id);
+      expect(response).to.deep.equal(movie);
     });
   });
 });
