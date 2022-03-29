@@ -66,3 +66,71 @@ describe('Ao chamar o controller de create', () => {
     });
   });
 });
+
+/*
+Continuando a utilizar o método send na response para manter o padrão que o 
+código do exercício já possuía.
+*/
+
+describe('Ao consultar um filme', () => {
+  describe('quando não existe no banco de dados', () => {
+    const request = {};
+    const response = {};
+
+    before(() => {
+      request.params = { id: 1 };
+      response.status = sinon.stub().returns(response);
+      response.send = sinon.stub().returns();
+
+      sinon.stub(MoviesService, 'getById').resolves(null);
+    });
+
+    after(() => {
+      MoviesService.getById.restore();
+    });
+
+    it('retorna response com status 404', async () => {
+      await MoviesController.getById(request, response);
+      expect(response.status.calledWith(404)).to.be.true;
+    });
+
+    it('retorna response com mensagem "Filme não encontrado."', async () => {
+      await MoviesController.getById(request, response);
+      expect(response.send.calledWith('Filme não encontrado.')).to.be.true;
+    });
+  });
+
+  describe('quando existe no banco de dados', () => {
+    const movie = {
+      id: 1,
+      title: 'Example',
+      directedBy: 'John Doe',
+      year: 1999,
+    };
+
+    const request = {};
+    const response = {};
+
+    before(() => {
+      request.params = { id: movie.id };
+      response.status = sinon.stub().returns(response);
+      response.send = sinon.stub().returns();
+
+      sinon.stub(MoviesService, 'getById').resolves(movie);
+    });
+
+    after(() => {
+      MoviesService.getById.restore();
+    });
+
+    it('retorna um objeto', async () => {
+      await MoviesController.getById(request, response);
+      expect(response.status.calledWith(200)).to.be.true;
+    });
+
+    it('retorna o objeto correto', async () => {
+      await MoviesController.getById(request, response);
+      expect(response.send.calledWith(movie)).to.be.true;
+    });
+  });
+});
