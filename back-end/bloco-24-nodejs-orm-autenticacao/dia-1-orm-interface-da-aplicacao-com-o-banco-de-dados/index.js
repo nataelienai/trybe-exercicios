@@ -47,12 +47,25 @@ app.post('/book/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { title, author, pageQuantity } = req.body;
+  
     const result = await Book.update(
       { title, author, pageQuantity },
       { where: { id } }
     );
 
     res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Algo deu errado' });
+  }
+});
+
+app.delete('/book/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const book = await Book.destroy({ where: { id } });
+
+    res.status(200).json(book);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Algo deu errado' });
