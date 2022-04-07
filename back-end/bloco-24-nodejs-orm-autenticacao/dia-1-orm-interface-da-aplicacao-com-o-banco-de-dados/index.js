@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const { Op } = require('sequelize');
 const { Book } = require('./src/models');
 
 const app = express();
@@ -9,7 +10,11 @@ app.use(express.json());
 
 app.get('/books', async (req, res) => {
   try {
-    const books = await Book.findAll();
+    const { author } = req.query;
+    const books = author
+      ? await Book.findAll({ where: { author: { [Op.like]: `%${author}%` } } })
+      : await Book.findAll();
+
     res.status(200).json(books);
   } catch (error) {
     console.error(error);
