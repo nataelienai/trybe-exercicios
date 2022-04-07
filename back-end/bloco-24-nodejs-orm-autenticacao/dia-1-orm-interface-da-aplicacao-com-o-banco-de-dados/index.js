@@ -47,13 +47,16 @@ app.post('/book/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { title, author, pageQuantity } = req.body;
-  
-    const result = await Book.update(
+    
+    const book = await Book.findByPk(id);
+    if (!book) return res.status(404).json({ message: 'Livro não encontrado' });
+
+    await Book.update(
       { title, author, pageQuantity },
       { where: { id } }
     );
 
-    res.status(200).json(result);
+    res.status(200).json({ ...book, title, author, pageQuantity });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Algo deu errado' });
@@ -63,7 +66,7 @@ app.post('/book/:id', async (req, res) => {
 app.delete('/book/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const book = await Book.destroy({ where: { id } });
+    await Book.destroy({ where: { id } });
 
     res.status(200).json(book);
   } catch (error) {
