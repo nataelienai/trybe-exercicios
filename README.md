@@ -176,13 +176,15 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 23-2: _Arquitetura de Software - Camadas Controller e Service_
 - [X] 23-3: _Arquitetura Web - Rest e Restful_
 - [X] 23-4: _Arquitetura de Software - Testando as camadas_
-- [ ] 23-5: _[Projeto - Store Manager]()_
+- [X] 23-5: _[Projeto - Store Manager]()_
 
-##### Bloco 24: Aggregation Framework
+##### Bloco 24: Node.js: ORM e Autenticação
 
-- [ ] 24-1: _Aggregation Framework - Part 1_
-- [ ] 24-2: _Aggregation Framework - Part 2_
-- [ ] 24-3: _[Projeto - Aggregations]()_
+- [X] 24-1: _ORM - Interface da aplicação com o banco de dados_
+- [ ] 24-2: _ORM - Associations_
+- [ ] 24-3: _JWT - (JSON Web Token)_
+- [ ] 24-4: _Testando APIs com Testes de integração_
+- [ ] 24-5: _[Projeto - API de Blogs]()_
 
 ##### Bloco 25: Intro - NodeJS
 
