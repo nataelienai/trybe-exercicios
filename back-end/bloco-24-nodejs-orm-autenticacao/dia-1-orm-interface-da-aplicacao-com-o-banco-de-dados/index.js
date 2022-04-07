@@ -31,4 +31,16 @@ app.get('/books/:id', async (req, res) => {
   }
 });
 
+app.post('/books', async (req, res) => {
+  try {
+    const { title, author, pageQuantity } = req.body;
+    const book = await Book.create({ title, author, pageQuantity });
+
+    res.status(201).json(book);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Algo deu errado' });
+  }
+})
+
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
