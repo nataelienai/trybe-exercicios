@@ -56,7 +56,7 @@ app.post('/book/:id', async (req, res) => {
       { where: { id } }
     );
 
-    res.status(200).json({ ...book, title, author, pageQuantity });
+    res.status(200).json({ title, author, pageQuantity });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Algo deu errado' });
