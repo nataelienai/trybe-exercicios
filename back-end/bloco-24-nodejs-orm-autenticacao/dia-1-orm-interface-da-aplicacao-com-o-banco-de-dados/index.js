@@ -12,8 +12,11 @@ app.get('/books', async (req, res) => {
   try {
     const { author } = req.query;
     const books = author
-      ? await Book.findAll({ where: { author: { [Op.like]: `%${author}%` } } })
-      : await Book.findAll();
+      ? await Book.findAll({
+        where: { author: { [Op.like]: `%${author}%` } },
+        order: [['title', 'ASC'], ['created_at', 'ASC']],
+      })
+      : await Book.findAll({ order: [['title', 'ASC'], ['created_at', 'ASC']]});
 
     res.status(200).json(books);
   } catch (error) {
