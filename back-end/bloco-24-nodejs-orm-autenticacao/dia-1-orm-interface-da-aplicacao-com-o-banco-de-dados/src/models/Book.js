@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     author: DataTypes.STRING,
     pageQuantity: DataTypes.INTEGER,
   }, {
-    updatedAt: false,
     underscored: true,
     tableName: 'Books',
   });

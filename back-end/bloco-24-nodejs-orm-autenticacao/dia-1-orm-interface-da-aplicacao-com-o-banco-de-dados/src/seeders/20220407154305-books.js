@@ -8,17 +8,20 @@ module.exports = {
         author: 'J. R. R. Tolkien',
         page_quantity: 423,
         created_at: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updated_at: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       {
         title: 'Harry Potter and the Philosopher\'s Stone',
         author: 'J. K. Rowling',
         created_at: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updated_at: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       {
         title: 'The Hobbit, or There and Back Again',
         author: 'J. R. R. Tolkien',
         page_quantity: 251,
         created_at: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updated_at: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
     ]);
   },
