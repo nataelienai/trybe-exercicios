@@ -57,7 +57,14 @@ const update = async (req, res) => {
       { where: { id } }
     );
 
-    res.status(200).json({ title, author, pageQuantity });
+    res.status(200).json({
+      id: book.id,
+      title,
+      author,
+      pageQuantity,
+      updatedAt: book.updatedAt,
+      createdAt: book.createdAt
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Algo deu errado' });
