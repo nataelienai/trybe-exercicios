@@ -10,181 +10,181 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 ##### Bloco 1: Introdução - Unix & Shell
 
-- [X] 1-3: _Unix & Shell - Parte 1_
-- [X] 1-4: _Unix & Shell - Parte 2_
+- [x] 1-3: _Unix & Shell - Parte 1_
+- [x] 1-4: _Unix & Shell - Parte 2_
 
 ##### Bloco 2: Git & GitHub
 
-- [X] 2-1: _O que é e para que serve?_
-- [X] 2-2: _Entendendo os comandos_
-- [X] 2-3: _Internet - Entendendo como ela funciona_
+- [x] 2-1: _O que é e para que serve?_
+- [x] 2-2: _Entendendo os comandos_
+- [x] 2-3: _Internet - Entendendo como ela funciona_
 
 ##### Bloco 3: Introdução - HTML & CSS
 
-- [X] 3-1: _HTML & CSS - Estruturas de página_
-- [X] 3-2: _HTML & CSS - Primeiros passos em CSS_
-- [X] 3-3: _HTML & CSS - Seletores e posicionamento_
-- [X] 3-4: _HTML Semântico_
-- [X] 3-5: _[Projeto - Lessons Learned](https://nataelienai.github.io/projetos/fundamentos/lessons-learned/)_
+- [x] 3-1: _HTML & CSS - Estruturas de página_
+- [x] 3-2: _HTML & CSS - Primeiros passos em CSS_
+- [x] 3-3: _HTML & CSS - Seletores e posicionamento_
+- [x] 3-4: _HTML Semântico_
+- [x] 3-5: _[Projeto - Lessons Learned](https://github.com/nataelienai/project-lessons-learned)_
 
 ##### Bloco 4: Introdução - JavaScript
 
-- [X] 4-1: _JavaScript - Primeiros passos_
-- [X] 4-2: _JavaScript - Array e loop For_
-- [X] 4-3: _JavaScript - Lógica de Programação e Algoritmos_
-- [X] 4-4: _JavaScript - Objetos e funções_
-- [X] 4-5: _[Projeto - Playground Functions](https://github.com/nataelienai/nataelienai.github.io/tree/main/projetos/fundamentos/playground-functions)_
+- [x] 4-1: _JavaScript - Primeiros passos_
+- [x] 4-2: _JavaScript - Array e loop For_
+- [x] 4-3: _JavaScript - Lógica de Programação e Algoritmos_
+- [x] 4-4: _JavaScript - Objetos e funções_
+- [x] 4-5: _[Projeto - Playground Functions](https://github.com/nataelienai/project-playground-functions)_
 
 ##### Bloco 5: JavaScript - DOM, Eventos e Web Storage
 
-- [X] 5-1: _JavaScript - DOM e seletores_
-- [X] 5-2: _JavaScript - Trabalhando com elementos_
-- [X] 5-3: _JavaScript - Eventos_
-- [X] 5-4: _JavaScript - Web Storage_
-- [X] 5-5: _[Projeto - Arte com Pixels](https://nataelienai.github.io/projetos/fundamentos/pixels-art/)_
-- [X] 5-6: _[Projeto - Lista de tarefas](https://nataelienai.github.io/projetos/fundamentos/todo-list/)_
+- [x] 5-1: _JavaScript - DOM e seletores_
+- [x] 5-2: _JavaScript - Trabalhando com elementos_
+- [x] 5-3: _JavaScript - Eventos_
+- [x] 5-4: _JavaScript - Web Storage_
+- [x] 5-5: _[Projeto - Arte com Pixels](https://github.com/nataelienai/project-pixels-art)_
+- [x] 5-6: _[Projeto - Lista de tarefas](https://github.com/nataelienai/project-todo-list)_
 - [ ] 5-7: _[Projeto - Meme Generator]()_
 - [ ] 5-7: _[Projeto - Adivinhe a Cor]()_
 - [ ] 5-7: _[Projeto - Carta Misteriosa]()_
 
 ##### Bloco 6: HTML & CSS avançado
 
-- [X] 6-1: _HTML & CSS - Forms_
-- [X] 6-2: _Bibliotecas JavaScript e Frameworks CSS_
-- [X] 6-3: _CSS Flexbox - Part 1_
-- [X] 6-4: _CSS Flexbox - Part 2_
-- [X] 6-5: _CSS Responsivo - Mobile First_
-- [X] 6-6: _[Trybewarts](https://nataelienai.github.io/projetos/fundamentos/trybewarts/)_
+- [x] 6-1: _HTML & CSS - Forms_
+- [x] 6-2: _Bibliotecas JavaScript e Frameworks CSS_
+- [x] 6-3: _CSS Flexbox - Part 1_
+- [x] 6-4: _CSS Flexbox - Part 2_
+- [x] 6-5: _CSS Responsivo - Mobile First_
+- [x] 6-6: _[Projeto - Trybewarts](https://github.com/nataelienai/project-trybewarts)_
 
 ##### Bloco 7: JavaScript ES6 & Testes Unitários
 
-- [X] 7-1: _JavaScript ES6 - let, const, arrow functions e template literals_
-- [X] 7-2: _JavaScript ES6 - Objects_
-- [X] 7-3: _Testes unitários em JavaScript_
-- [X] 7-4: _[Projeto - JavaScript Testes Unitários](https://github.com/nataelienai/nataelienai.github.io/tree/main/projetos/fundamentos/js-unit-tests)_
+- [x] 7-1: _JavaScript ES6 - let, const, arrow functions e template literals_
+- [x] 7-2: _JavaScript ES6 - Objects_
+- [x] 7-3: _Testes unitários em JavaScript_
+- [x] 7-4: _[Projeto - JavaScript Testes Unitários](https://github.com/nataelienai/project-js-unit-tests)_
 
 ##### Bloco 8: JavaScript ES6 - Higher Order Functions
 
-- [X] 8-1: _JavaScript ES6 - Introdução a Higher Order Functions_
-- [X] 8-2: _JavaScript ES6 - Higher Order Functions - forEach, find, some, every, sort_
-- [X] 8-3: _JavaScript ES6 - Higher Order Functions - map e filter_
-- [X] 8-4: _JavaScript ES6 - Higher Order Functions - reduce_
-- [X] 8-5: _JavaScript ES6 - spread operator, rest parameter, destructuring e mais_
-- [X] 8-6: _[Projeto - Zoo functions](https://github.com/nataelienai/nataelienai.github.io/tree/main/projetos/fundamentos/zoo-functions)_
+- [x] 8-1: _JavaScript ES6 - Introdução a Higher Order Functions_
+- [x] 8-2: _JavaScript ES6 - Higher Order Functions - forEach, find, some, every, sort_
+- [x] 8-3: _JavaScript ES6 - Higher Order Functions - map e filter_
+- [x] 8-4: _JavaScript ES6 - Higher Order Functions - reduce_
+- [x] 8-5: _JavaScript ES6 - spread operator, rest parameter, destructuring e mais_
+- [x] 8-6: _[Projeto - Zoo functions](https://github.com/nataelienai/project-zoo-functions)_
 
 ##### Bloco 9: JavaScript & Testes Assíncronos
 
-- [X] 9-1: _JavaScript Assíncrono e Callbacks_
-- [X] 9-2: _JavaScript Assíncrono - Fetch API e async/await_
-- [X] 9-3: _Jest - Testes Assíncronos_
-- [X] 9-4: _[Projeto - Carrinho de Compras](https://nataelienai.github.io/projetos/fundamentos/shopping-cart/)_
+- [x] 9-1: _JavaScript Assíncrono e Callbacks_
+- [x] 9-2: _JavaScript Assíncrono - Fetch API e async/await_
+- [x] 9-3: _Jest - Testes Assíncronos_
+- [x] 9-4: _[Projeto - Carrinho de Compras](https://github.com/nataelienai/project-shopping-cart)_
 
 ## Desenvolvimento Front-end :heavy_check_mark:
 
 ##### Bloco 10: Introdução - React
 
-- [X] 10-1: _'Hello, world!' no React!_
-- [X] 10-2: _Componentes React_
-- [X] 10-3: _[Projeto - Sistema Solar](https://github.com/nataelienai/nataelienai.github.io/tree/main/projetos/front-end/solar-system)_
+- [x] 10-1: _'Hello, world!' no React!_
+- [x] 10-2: _Componentes React_
+- [x] 10-3: _[Projeto - Sistema Solar](https://github.com/nataelienai/project-solar-system)_
 
 ##### Bloco 11: React - Componentes com Estado, Eventos e Formulários
 
-- [X] 11-1: _Components com estado_
-- [X] 11-2: _Eventos e formulários no React_
-- [X] 11-3: _[Projeto - Tryunfo]()_
+- [x] 11-1: _Components com estado_
+- [x] 11-2: _Eventos e formulários no React_
+- [x] 11-3: _[Projeto - Tryunfo](https://github.com/nataelienai/project-tryunfo)_
 
 ##### Bloco 12: React - Ciclo de Vida de Componentes e React Router
 
-- [X] 12-1: _Ciclo de vida de componentes em React_
-- [X] 12-2: _React Router_
-- [X] 12-3: _[Projeto - TrybeTunes]()_
+- [x] 12-1: _Ciclo de vida de componentes em React_
+- [x] 12-2: _React Router_
+- [x] 12-3: _[Projeto - TrybeTunes](https://github.com/nataelienai/project-trybetunes)_
 
 ##### Bloco 13: Metodologias Ágeis
 
-- [X] 13-1: _Metodologias Ágeis_
-- [X] 13-2: _[Projeto - Frontend Online Store]()_
+- [x] 13-1: _Metodologias Ágeis_
+- [x] 13-2: _[Projeto - Frontend Online Store](https://github.com/nataelienai/project-frontend-online-store)_
 
 ##### Bloco 14: Testes automatizados com React Testing Library
 
-- [X] 14-1: _RTL - Primeiros passos_
-- [X] 14-2: _RTL - Mocks e Inputs_
-- [X] 14-3: _RTL - Testando React Router_
-- [X] 14-4: _[Projeto - Testes em React]()_
+- [x] 14-1: _RTL - Primeiros passos_
+- [x] 14-2: _RTL - Mocks e Inputs_
+- [x] 14-3: _RTL - Testando React Router_
+- [x] 14-4: _[Projeto - Testes em React](https://github.com/nataelienai/project-react-testing-library)_
 
 ##### Bloco 15: Gerenciamento de estado com Redux
 
-- [X] 15-1: _Introdução ao Redux_
-- [X] 15-2: _React com Redux - Parte 1_
-- [X] 15-3: _React com Redux - Prática_
-- [X] 15-4: _React com Redux - Parte 2_
-- [X] 15-5: _Testes com React-Redux_
-- [X] 15-6: _[Projeto - Trybe Wallet]()_
+- [x] 15-1: _Introdução ao Redux_
+- [x] 15-2: _React com Redux - Parte 1_
+- [x] 15-3: _React com Redux - Prática_
+- [x] 15-4: _React com Redux - Parte 2_
+- [x] 15-5: _Testes com React-Redux_
+- [x] 15-6: _[Projeto - Trybe Wallet](https://github.com/nataelienai/project-trybewallet)_
 
 ##### Bloco 16: Projeto React
 
-- [X] 16-1: _[Projeto - Jogo de Trivia]()_
+- [x] 16-1: _[Projeto - Jogo de Trivia](https://github.com/nataelienai/project-trivia)_
 
 ##### Bloco 17: React & Context API
 
-- [X] 17-1: _Context API do React_
-- [X] 17-2: _React Hooks - useState e useContext_
-- [X] 17-3: _React Hooks - useEffect e Hooks customizados_
-- [X] 17-4: _[Projeto - StarWars Datatable com Context API e Hooks]()_
+- [x] 17-1: _Context API do React_
+- [x] 17-2: _React Hooks - useState e useContext_
+- [x] 17-3: _React Hooks - useEffect e Hooks customizados_
+- [x] 17-4: _[Projeto - StarWars Datatable com Context API e Hooks](https://github.com/nataelienai/project-starwars-planets-search)_
 
 ##### Bloco 18: Projeto Final de Front-end
 
-- [X] 18-1: _[Projeto - App de Receitas]()_
+- [x] 18-1: _[Projeto - App de Receitas](https://github.com/nataelienai/project-recipes-app)_
 
 ## Desenvolvimento Back-end :white_check_mark:
 
 ##### Bloco 19: Docker - Utilizando Containers
 
-- [X] 19-1: _Introdução - Back-end_
-- [X] 19-1: _Utilizando Containers_
-- [X] 19-2: _Manipulação e Criação de Imagens no Docker_
-- [X] 19-3: _Orquestrando Containers com Docker Compose_
-- [X] 19-4: _[Projeto - Docker Todo-List]()_
+- [x] 19-1: _Introdução - Back-end_
+- [x] 19-1: _Utilizando Containers_
+- [x] 19-2: _Manipulação e Criação de Imagens no Docker_
+- [x] 19-3: _Orquestrando Containers com Docker Compose_
+- [x] 19-4: _[Projeto - Docker Todo-List](https://github.com/nataelienai/project-docker-todo-list)_
 
 ##### Bloco 20: Introdução à SQL
 
-- [X] 20-1: _Introdução - Banco de dados relacionais_
-- [X] 20-1: _Banco de dados SQL_
-- [X] 20-2: _Encontrando dados em um banco de dados_
-- [X] 20-3: _Filtrando dados de forma específica_
-- [X] 20-4: _Manipulando tabelas_
-- [X] 20-5: _[Projeto - All for One]()_
+- [x] 20-1: _Introdução - Banco de dados relacionais_
+- [x] 20-1: _Banco de dados SQL_
+- [x] 20-2: _Encontrando dados em um banco de dados_
+- [x] 20-3: _Filtrando dados de forma específica_
+- [x] 20-4: _Manipulando tabelas_
+- [x] 20-5: _[Projeto - All for One](https://github.com/nataelienai/project-all-for-one)_
 
 ##### Bloco 21: Funções SQL, JOINs e Normalização
 
-- [X] 21-1: _Funções mais usadas no SQL_
-- [X] 21-2: _Descomplicando JOINs_
-- [X] 21-3: _Transformando ideias em um modelo de banco de dados_
-- [X] 21-4: _Aula ao vivo + [Projeto - One for All]()_
+- [x] 21-1: _Funções mais usadas no SQL_
+- [x] 21-2: _Descomplicando JOINs_
+- [x] 21-3: _Transformando ideias em um modelo de banco de dados_
+- [x] 21-4: _Aula ao vivo + [Projeto - One for All](https://github.com/nataelienai/project-one-for-all)_
 
 ##### Bloco 22: Introdução ao desenvolvimento Web com Node.js
 
-- [X] 22-1: _Node.js - Um motor JavaScript_
-- [X] 22-2: _Node.js - Fluxo Assíncrono_
-- [X] 22-3: _Mocha, Chai e Sinon - Testes de Back-end com Node.js_
-- [X] 22-4: _Express - HTTP com Node.js_
-- [X] 22-5: _Express - Middlewares_
-- [X] 22-6: _[Projeto - Talker Manager]()_
+- [x] 22-1: _Node.js - Um motor JavaScript_
+- [x] 22-2: _Node.js - Fluxo Assíncrono_
+- [x] 22-3: _Mocha, Chai e Sinon - Testes de Back-end com Node.js_
+- [x] 22-4: _Express - HTTP com Node.js_
+- [x] 22-5: _Express - Middlewares_
+- [x] 22-6: _[Projeto - Talker Manager](https://github.com/nataelienai/project-talker-manager)_
 
 ##### Bloco 23: Node.js: Camada de Serviço e Arquitetura Rest e Restful
 
-- [X] 23-1: _Arquitetura de Software - Camada Model_
-- [X] 23-2: _Arquitetura de Software - Camadas Controller e Service_
-- [X] 23-3: _Arquitetura Web - Rest e Restful_
-- [X] 23-4: _Arquitetura de Software - Testando as camadas_
-- [X] 23-5: _[Projeto - Store Manager]()_
+- [x] 23-1: _Arquitetura de Software - Camada Model_
+- [x] 23-2: _Arquitetura de Software - Camadas Controller e Service_
+- [x] 23-3: _Arquitetura Web - Rest e Restful_
+- [x] 23-4: _Arquitetura de Software - Testando as camadas_
+- [x] 23-5: _[Projeto - Store Manager](https://github.com/nataelienai/project-store-manager)_
 
 ##### Bloco 24: Node.js: ORM e Autenticação
 
-- [X] 24-1: _ORM - Interface da aplicação com o banco de dados_
-- [ ] 24-2: _ORM - Associations_
-- [ ] 24-3: _JWT - (JSON Web Token)_
-- [ ] 24-4: _Testando APIs com Testes de integração_
-- [ ] 24-5: _[Projeto - API de Blogs]()_
+- [x] 24-1: _ORM - Interface da aplicação com o banco de dados_
+- [x] 24-2: _ORM - Associations_
+- [x] 24-3: _JWT - (JSON Web Token)_
+- [x] 24-4: _Testando APIs com Testes de integração_
+- [x] 24-5: _[Projeto - API de Blogs](https://github.com/nataelienai/project-blogs-api)_
 
 ##### Bloco 25: Intro - NodeJS
 
