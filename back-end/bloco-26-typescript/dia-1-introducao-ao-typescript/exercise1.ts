@@ -1,6 +1,19 @@
-type Character = any;
+type CharacterStats = {
+  agi: number;
+  str: number;
+  int: number;
+  hp: number;
+  mp: number;
+}
 
-const characters: any = [
+type Character = {
+  nickname: string;
+  class: string;
+  stats: CharacterStats;
+  createdAt: Date;
+};
+
+const characters: Character[] = [
   {
     nickname: 'xKillerx',
     class: 'warrior',
@@ -21,13 +34,11 @@ const characters: any = [
   },
 ]
 
-function printCharacter(character: any, index: number) {
+function printCharacter(character: Character, index: number) {
   const { nickname, class: cls, createdAt } = character;
 
   console.log(`\n\n===== Character: ${index + 1} ========`);
-  console.log(`nickname: ${nickname}
-class: ${cls}
-createdAt: ${createdAt}`);
+  console.log(`nickname: ${nickname}\nclass: ${cls}\ncreatedAt: ${createdAt}`);
 }
 
 characters.forEach(printCharacter);
