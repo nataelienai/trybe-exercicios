@@ -1,5 +1,5 @@
 // Crie uma enum que represente os meses do ano.
-export enum MonthsOfTheYear {
+export enum Month {
   JANUARY = 'January',
   FEBRUARY = 'February',
   MARCH = 'March',
