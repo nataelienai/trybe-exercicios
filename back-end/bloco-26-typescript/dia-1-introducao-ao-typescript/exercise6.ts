@@ -1,11 +1,11 @@
 export enum Units {
-  KILOMETER = 1000,
-  HECTOMETER = 100,
-  DECAMETER = 10,
-  METER = 1,
-  DECIMETER = 0.1,
-  CENTIMETER = 0.01,
-  MILLIMETER = 0.001,
+  KILOGRAM = 1000,
+  HECTOGRAM = 100,
+  DECAGRAM = 10,
+  GRAM = 1,
+  DECIGRAM = 0.1,
+  CENTIGRAM = 0.01,
+  MILLIGRAM = 0.001,
 }
 
 type Unit = keyof typeof Units;
