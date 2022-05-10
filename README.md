@@ -186,60 +186,61 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 24-4: _Testando APIs com Testes de integração_
 - [x] 24-5: _[Projeto - API de Blogs](https://github.com/nataelienai/project-blogs-api)_
 
-##### Bloco 25: Intro - NodeJS
+##### Bloco 25: Deployment
 
-- [ ] 25-1: _NodeJS - Introdução_
-- [ ] 25-2: _NodeJS - Fluxo Assí­ncrono_
-- [ ] 25-3: _NodeJS - Arquitetura_
-- [ ] 25-4: _[Projeto - A CLI of Ice and Fire]()_
+- [x] 25-1: _Infraestrutura - Deploy com Heroku_
+- [x] 25-2: _Deploy Docker & Heroku_
+- [x] 25-3: _Projeto - Stranger Things_
 
-##### Bloco 26: NodeJS
+##### Bloco 26: TypeScript
 
-- [ ] 26-1: _Express: HTTP com Node.js_
-- [ ] 26-2: _Arquitetura de Software - Introdução ao MVC_
-- [ ] 26-3: _[Projeto - Cookmaster]()_
+- [x] 26-1: _Introdução ao TypeScript_
+- [ ] 26-2: _Tipagem Estática e Generics_
+- [ ] 26-3: _Express com TypeScript_
+- [ ] 26-4: _[Projeto - Trybe Smith]()_
 
-##### Bloco 27: NodeJS
+##### Bloco 27: Programação Orientada a Objetos (POO) e SOLID
 
-- [ ] 27-1: _Arquitetura de Software - Camada de Serviço_
-- [ ] 27-2: _Arquitetura web - Rest e Restful_
-- [ ] 27-3: _[Projeto - Store Manager]()_
+- [ ] 27-1: _Introdução à Orientação a Objetos_
+- [ ] 27-2: _Herança e Interfaces_
+- [ ] 27-3: _Polimorfismo_
+- [ ] 27-4: _SOLID - Introdução e Princípios S, O e D_
+- [ ] 27-5: _SOLID - Princípios L e I_
+- [ ] 27-6: _[Projeto - Trybers and Dragons]()_
 
-##### Bloco 28: NodeJS
+##### Bloco 28: Projeto - Trybe Futebol Clube (TFC)
 
-- [ ] 28-1: _NodeJS - JWT - (JSON Web Token)_
-- [ ] 28-2: _NodeJS - Upload de arquivos com Multer_
-- [ ] 28-3: _[Projeto - Cookmaster V2]()_
+- [ ] 28-3: _[Projeto - Trybe Futebol Clube (TFC)]()_
 
-##### Bloco 29: Introdução - Deploy
+##### Bloco 29: Introdução ao MongoDB
 
-- [ ] 29-1: _Infraestrutura - Deploy com Heroku_
-- [ ] 29-2: _Deploy - Gerenciadores de Processos_
-- [ ] 29-3: _[Projeto - Stranger Things]()_
+- [ ] 29-1: _MongoDB - Introdução_
+- [ ] 29-2: _Filter Operators_
+- [ ] 29-3: _Operadores de consulta_
+- [ ] 29-4: _Updates Simples_
+- [ ] 29-5: _Updates Complexos - Array_
+- [ ] 29-6: _[Projeto - Commerce]()_
 
-##### Bloco 30: Projeto
+##### Bloco 30: MongoDB com Node.js e POO
 
-- [ ] 30-1: _[Projeto - Trybeer]()_
+- [ ] 30-1: _MongoDB e arquitetura MSC_
+- [ ] 30-2: _MongoDB e POO_
+- [ ] 30-3: _[Projeto - Car Shop]()_
 
-##### Bloco 31: Arquitetura de Software
+##### Bloco 31: App de Delivery
 
-- [ ] 31-1: _Arquitetura - Princípios SOLID_
-- [ ] 31-2: _ORM - Interface da aplicação com o banco de dados_
-- [ ] 31-3: _Arquitetura de Software - DDD_
-- [ ] 31-4: _Boas práticas na escrita de testes_
-- [ ] 31-3: _[Projeto - API de Blogs]()_
+- [ ] 31-1: _[Projeto - App de Delivery]()_
 
-##### Bloco 32: Sockets
+##### Bloco 32: MasterClass - VPS, CI/CD
 
-- [ ] 32-1: _Sockets - TCP/UDP & NET_
-- [ ] 32-2: _Sockets - Socket.io_
-- [ ] 32-3: _[Projeto - Webchat]()_
+- [ ] 32-1: _Em breve_
+- [ ] 32-2: _Em breve_
+
+## Ciência da Computação :hourglass_flowing_sand:
 
 ##### Bloco 33: Projeto
 
 - [ ] 33-1: _[Projeto - Trybeer V2]()_
-
-## Ciência da Computação :hourglass_flowing_sand:
 
 ##### Bloco 34: Introdução - Ciência da Computação
 
