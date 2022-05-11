@@ -110,3 +110,32 @@ interface Pizza {
 const calabresaPizza: Pizza = { flavor: 'Calabresa', slices: 8 };
 const margueritaPizza: Pizza = { flavor: 'Marguerita', slices: 6 };
 const nutelaPizza: Pizza = { flavor: 'Nutela', slices: 4 };
+
+// Exercise 4
+type CommonPizzaFlavor = 'Calabresa' | 'Frango' | 'Pepperoni';
+
+interface CommonPizza extends Pizza {
+  flavor: CommonPizzaFlavor;
+}
+
+type VegetarianPizzaFlavor = 'Marguerita' | 'Palmito' | 'Cogumelo';
+
+interface VegetarianPizza extends Pizza {
+  flavor: VegetarianPizzaFlavor;
+}
+
+type SweetPizzaFlavor = 'Nutela' | 'Goiabada com Queijo' | 'Marshmallow';
+
+interface SweetPizza extends Pizza {
+  flavor: SweetPizzaFlavor;
+  slices: 4;
+}
+
+const _calabresaPizza: CommonPizza = { flavor: 'Calabresa', slices: 4 };
+const frangoPizza: CommonPizza = { flavor: 'Frango', slices: 6 };
+const pepperoniPizza: CommonPizza = { flavor: 'Pepperoni', slices: 8 };
+
+const cogumeloPizza: VegetarianPizza = { flavor: 'Cogumelo', slices: 8 };
+const palmitoPizza: VegetarianPizza = { flavor: 'Palmito', slices: 6 };
+
+const marshmallowPizza: SweetPizza = { flavor: 'Marshmallow', slices: 4 };
