@@ -98,3 +98,15 @@ function uberTrip() {
 }
 
 uberTrip();
+
+// Exercise 3
+type numberOfSlices = 4 | 6 | 8;
+
+interface Pizza {
+  flavor: string;
+  slices: numberOfSlices;
+}
+
+const calabresaPizza: Pizza = { flavor: 'Calabresa', slices: 8 };
+const margueritaPizza: Pizza = { flavor: 'Marguerita', slices: 6 };
+const nutelaPizza: Pizza = { flavor: 'Nutela', slices: 4 };
