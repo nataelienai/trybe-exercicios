@@ -66,3 +66,35 @@ class Car {
     console.log(`Virando à ${direction}`);
   }
 }
+
+// Exercise 2
+function uberTrip() {
+  const car = new Car('volkswagen gol', Color.SILVER, 4);
+  car.turnOn();
+  car.speedUp();
+  car.speedDown();
+  car.turn(Direction.LEFT);
+  car.speedUp();
+  car.speedDown();
+  car.turn(Direction.RIGHT);
+  car.speedUp();
+  car.speedDown();
+  car.turn(Direction.RIGHT);
+  car.speedUp();
+  car.speedDown();
+  car.stop();
+  car.speedUp();
+  car.speedDown();
+  car.turn(Direction.RIGHT);
+  car.speedUp();
+  car.speedDown();
+  car.turn(Direction.LEFT);
+  car.speedUp();
+  car.speedDown();
+  car.turn(Direction.RIGHT);
+  car.speedUp();
+  car.speedDown();
+  car.stop();
+}
+
+uberTrip();
