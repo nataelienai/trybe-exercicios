@@ -43,9 +43,9 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 5-4: _JavaScript - Web Storage_
 - [x] 5-5: _[Projeto - Arte com Pixels](https://github.com/nataelienai/pixels-art)_
 - [x] 5-6: _[Projeto - Lista de tarefas](https://github.com/nataelienai/todo-list)_
-- [ ] 5-7: _[Projeto - Meme Generator]()_
-- [ ] 5-7: _[Projeto - Adivinhe a Cor]()_
-- [ ] 5-7: _[Projeto - Carta Misteriosa]()_
+- [ ] 5-7: _Projeto - Meme Generator_
+- [ ] 5-7: _Projeto - Adivinhe a Cor_
+- [ ] 5-7: _Projeto - Carta Misteriosa_
 
 ##### Bloco 6: HTML & CSS avançado
 
