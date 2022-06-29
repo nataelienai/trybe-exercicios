@@ -1,0 +1,8 @@
+import { tournamentModel } from "../database/models/tournament"
+import { ITournament } from "../database/schemas/tournament";
+
+export class TournamentModel {
+  async findAll(): Promise<ITournament[]> {
+    return tournamentModel.find();
+  }
+}
