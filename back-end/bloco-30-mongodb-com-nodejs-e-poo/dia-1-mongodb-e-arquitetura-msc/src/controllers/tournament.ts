@@ -6,7 +6,7 @@ export class TournamentController {
 
   async findAll(req: Request, res: Response): Promise<void> {
     try {
-      const tournaments = this.tournamentService.findAll();
+      const tournaments = await this.tournamentService.findAll();
       res.status(200).json(tournaments);
     } catch {
       res.status(500).json({ message: 'Internal Server Error' });
