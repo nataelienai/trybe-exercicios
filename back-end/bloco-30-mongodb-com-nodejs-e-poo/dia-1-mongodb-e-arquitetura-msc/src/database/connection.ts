@@ -1,3 +1,5 @@
 import mongoose from 'mongoose';
 
-export const connection = mongoose.connect('mongodb://localhost:27017/world_cups');
+export function createConnection(uri = 'mongodb://localhost:27017/world_cups') {
+  mongoose.connect(uri);
+}
