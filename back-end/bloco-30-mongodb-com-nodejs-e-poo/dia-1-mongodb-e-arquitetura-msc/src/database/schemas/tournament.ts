@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 
-interface Tournament {
+export interface ITournament {
   year: number;
   hostCountry: string;
   champions: string;
@@ -12,7 +12,7 @@ interface Tournament {
   bestYoungPlayer: string;
 }
 
-const tournamentSchema = new Schema<Tournament>({
+export const tournamentSchema = new Schema<ITournament>({
   year: { type: Number, required: true },
   hostCountry: { type: String, required: true },
   champions: { type: String, required: true },
@@ -23,5 +23,3 @@ const tournamentSchema = new Schema<Tournament>({
   bestGoalkeeper: { type: String },
   bestYoungPlayer: { type: String, required: true },
 });
-
-export default tournamentSchema;
