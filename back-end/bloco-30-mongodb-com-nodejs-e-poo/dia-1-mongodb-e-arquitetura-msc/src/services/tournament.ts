@@ -11,4 +11,8 @@ export class TournamentService {
   async findByYear(year: number): Promise<ITournament | null> {
     return this.tournamentModel.findByYear(year);
   }
+
+  async create(tournament: ITournament): Promise<ITournament> {
+    return this.tournamentModel.create(tournament);
+  }
 }
