@@ -25,10 +25,23 @@ export class TournamentController {
       return res.status(500).json({ message: 'Internal Server Error' });
     }
   }
+
   async create(req: Request, res: Response): Promise<Response> {
     try {
       const tournament = await this.tournamentService.create(req.body);
       return res.status(201).json(tournament);
+    } catch {
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+  }
+
+  async update(req: Request, res: Response): Promise<Response> {
+    try {
+      const tournament = await this.tournamentService.update(req.params.id, req.body);
+      if (!tournament) {
+        return res.status(404).json({ message: `Tournament not found` });
+      }
+      return res.status(200).json(tournament);
     } catch {
       return res.status(500).json({ message: 'Internal Server Error' });
     }

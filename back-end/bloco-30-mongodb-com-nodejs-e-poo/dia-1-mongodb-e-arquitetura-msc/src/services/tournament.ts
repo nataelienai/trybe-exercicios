@@ -15,4 +15,8 @@ export class TournamentService {
   async create(tournament: ITournament): Promise<ITournament> {
     return this.tournamentModel.create(tournament);
   }
+
+  async update(id: string, tournament: ITournament): Promise<ITournament | null> {
+    return this.tournamentModel.update(id, tournament);
+  }
 }
