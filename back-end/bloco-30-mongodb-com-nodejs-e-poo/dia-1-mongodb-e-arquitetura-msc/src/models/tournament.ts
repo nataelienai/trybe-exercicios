@@ -5,4 +5,8 @@ export class TournamentModel {
   async findAll(): Promise<ITournament[]> {
     return tournamentModel.find();
   }
+
+  async findByYear(year: number): Promise<ITournament | null> {
+    return tournamentModel.findOne({ year });
+  }
 }

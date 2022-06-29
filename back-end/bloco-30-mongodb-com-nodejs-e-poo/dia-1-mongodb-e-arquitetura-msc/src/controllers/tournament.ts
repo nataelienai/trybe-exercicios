@@ -12,4 +12,17 @@ export class TournamentController {
       res.status(500).json({ message: 'Internal Server Error' });
     }
   }
+
+  async findByYear(req: Request, res: Response): Promise<Response> {
+    const year = Number(req.params.year);
+    try {
+      const tournament = await this.tournamentService.findByYear(year);
+      if (!tournament) {
+        return res.status(404).json({ message: `There was no world cup in ${year}` });
+      }
+      return res.status(200).json(tournament);
+    } catch {
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+  }
 }
