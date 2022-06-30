@@ -46,4 +46,16 @@ export class TournamentController {
       return res.status(500).json({ message: 'Internal Server Error' });
     }
   }
+
+  async delete(req: Request, res: Response): Promise<Response> {
+    try {
+      const tournament = await this.tournamentService.delete(req.params.id);
+      if (!tournament) {
+        return res.status(404).json({ message: `Tournament not found` });
+      }
+      return res.status(200).json(tournament);
+    } catch {
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+  }
 }

@@ -17,4 +17,8 @@ export class TournamentModel {
   async update(id: string, tournament: ITournament): Promise<ITournament | null> {
     return tournamentModel.findOneAndUpdate({ _id: id }, tournament, { new: true });
   }
+
+  async delete(id: string): Promise<ITournament | null> {
+    return tournamentModel.findOneAndDelete({ _id: id });
+  }
 }

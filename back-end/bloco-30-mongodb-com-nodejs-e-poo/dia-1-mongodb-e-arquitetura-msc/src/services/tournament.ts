@@ -19,4 +19,8 @@ export class TournamentService {
   async update(id: string, tournament: ITournament): Promise<ITournament | null> {
     return this.tournamentModel.update(id, tournament);
   }
+
+  async delete(id: string): Promise<ITournament | null> {
+    return this.tournamentModel.delete(id);
+  }
 }
