@@ -1,13 +1,16 @@
+from collections.abc import Iterable, Iterator
+
+
 class Carta:
     def __init__(self, valor, naipe):
         self.valor = valor
         self.naipe = naipe
 
     def __repr__(self):
-        return "<%%s de %s>" % (self.valor, self.naipe)
+        return "<%s de %s>" % (self.valor, self.naipe)
 
 
-class Baralho:
+class Baralho(Iterable):
     naipes = "copas ouros espadas paus".split()
     valores = "A 2 3 4 5 6 7 8 9 10 J Q K".split()
 
@@ -20,3 +23,20 @@ class Baralho:
 
     def __len__(self):
         return len(self._cartas)
+
+    def __iter__(self):
+        return BaralhoIterator(self._cartas)
+
+
+class BaralhoIterator(Iterator):
+    def __init__(self, cartas):
+        self.__cartas = cartas
+        self.__carta_atual = 0
+
+    def __next__(self):
+        try:
+            carta = self.__cartas[self.__carta_atual]
+            self.__carta_atual += 1
+            return carta
+        except IndexError:
+            raise StopIteration()
