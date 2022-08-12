@@ -9,17 +9,17 @@ class Sistema(ABC):
 
 class SistemaDeSuporte(Sistema):
     def __repr__(self):
-        return "Sistema de Suporte"
+        return "Suporte"
 
 
 class SistemaDeVendas(Sistema):
     def __repr__(self):
-        return "Sistema de Vendas"
+        return "Vendas"
 
 
 class SistemaFinanceiro(Sistema):
     def __repr__(self):
-        return "Sistema Financeiro"
+        return "Financeiro"
 
 
 # Abstract factory
@@ -28,11 +28,14 @@ class Conta(ABC):
         self.__sistemas = []
 
     @abstractmethod
-    def criar(self):
+    def criar_conta(self):
         raise NotImplementedError
 
     def adicionar_sistema(self, sistema):
         self.__sistemas.append(sistema)
+
+    def pegar_sistemas(self):
+        return self.__sistemas
 
 
 class ContaDeSuporte(Conta):
