@@ -1,13 +1,13 @@
 from abc import ABC, abstractmethod
 
 
-class PngInterface(ABC):
+class ImageInterface(ABC):
     @abstractmethod
     def draw(self):
         raise NotImplementedError
 
 
-class PngImage(PngInterface):
+class PngImage(ImageInterface):
     def __init__(self, png_path):
         self.png_path = png_path
         self.format = "raster"
@@ -23,3 +23,11 @@ class SvgImage:
 
     def get_image(self):
         return f"SVG {self.svg_path} with {self.format}"
+
+
+class SvgImageAdapter(ImageInterface):
+    def __init__(self, svg_image):
+        self.__svg_image = svg_image
+
+    def draw(self):
+        print(f"Drawing {self.__svg_image.get_image()}")
