@@ -255,13 +255,13 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 ##### Bloco 35: Redes e Raspagem de Dados
 
 - [x] 35-1: _Arquitetura de redes, ferramentas e segurança_
-- [ ] 35-2: _Raspagem de Dados_
-- [ ] 35-3: _[Projeto - Tech news]()_
+- [x] 35-2: _Raspagem de Dados_
+- [x] 35-3: _[Projeto - Tech news]()_
 
 ##### Bloco 36: Algoritmos
 
-- [ ] 36-1: _Complexidade de Algoritmos_
-- [ ] 36-2: _Recursividade e Estratégias para solução de problemas_
+- [x] 36-1: _Complexidade de Algoritmos_
+- [x] 36-2: _Recursividade e Estratégias para solução de problemas_
 - [ ] 36-3: _Algoritmos de ordenação e busca_
 - [ ] 36-3: _[Projeto - Algoritmos]()_
 
