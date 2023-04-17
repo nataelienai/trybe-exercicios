@@ -236,7 +236,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 32-1: _VPS_
 - [x] 32-2: _GitHub CLI_
 
-## Ciência da Computação :white_check_mark:
+## Ciência da Computação :heavy_check_mark:
 
 ##### Bloco 33: Python
 
@@ -262,21 +262,21 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 - [x] 36-1: _Complexidade de Algoritmos_
 - [x] 36-2: _Recursividade e Estratégias para solução de problemas_
-- [ ] 36-3: _Algoritmos de ordenação e busca_
-- [ ] 36-3: _[Projeto - Algoritmos]()_
+- [X] 36-3: _Algoritmos de ordenação e busca_
+- [X] 36-3: _[Projeto - Algoritmos]()_
 
 ##### Bloco 37: Estrutura de Dados I: Arrays, Listas, Filas e Pilhas
 
-- [ ] 37-1: _Arquitetura de Computadores_
-- [ ] 37-2: _Arrays_
-- [ ] 37-3: _Nó e Listas Encadeadas_
-- [ ] 37-4: _Pilhas e Filas_
-- [ ] 37-5: _[Projeto - TING - Trybe Is Not Google]()_
+- [X] 37-1: _Arquitetura de Computadores_
+- [X] 37-2: _Arrays_
+- [X] 37-3: _Nó e Listas Encadeadas_
+- [X] 37-4: _Pilhas e Filas_
+- [X] 37-5: _[Projeto - TING - Trybe Is Not Google]()_
 
 ##### Bloco 38: Estrutura de Dados II: Hashmaps e Sets
 
-- [ ] 38-1: _Hashmap e Dict_
-- [ ] 38-2: _Set_
-- [ ] 38-3: _[Projeto - Restaurant Orders]()_
+- [X] 38-1: _Hashmap e Dict_
+- [X] 38-2: _Set_
+- [X] 38-3: _[Projeto - Restaurant Orders]()_
 
 # [...]
